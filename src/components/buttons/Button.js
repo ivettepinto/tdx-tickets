@@ -1,4 +1,5 @@
 import React from 'react'
+import './Button.css'
 
 const Button = (props) => {
 
@@ -8,7 +9,7 @@ const Button = (props) => {
   } 
 
   return (
-      <button onClick={handlerOnClick}>
+      <button onClick={handlerOnClick} className='HelpButton'>
         {props.children}
       </button>
   )
