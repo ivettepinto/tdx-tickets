@@ -1,5 +1,6 @@
 import React from "react";
 import "./HelpForm.css";
+import Field from "../field/Field";
 
 const HelpForm = (props) => {
   const handlerOnClick = () => {
@@ -9,11 +10,10 @@ const HelpForm = (props) => {
   return (
     <div className="helpform" onClick={handlerOnClick}>
       <div className="modal">
-        Help Form
-        <p> lorem </p>
-        <p> lorem </p>
-        <p> lorem </p>
-        <p> lorem </p>
+        {props.data.map((item, index)=>(
+          <Field key={index} {...item}/>
+        ))}
+
       </div>
     </div>
   );

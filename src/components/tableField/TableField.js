@@ -4,14 +4,14 @@ const TableField = (props) => {
   return (
     <table>
         <tr>
-            {props.header.map( item => (
-                <th>{item.text}</th>
+            {props.header.map( (item, index) => (
+                <th key={index}>{item.text}</th>
             ))}
         </tr>
 
         <tr>
-            {props.textrow.map( item => (
-                <td>{item.text}</td>
+            {props.textrow.map( (item, index) => (
+                <td key={index}>{item.text}</td>
             ))}
         </tr>
         
