@@ -6,9 +6,9 @@ function App() {
 
   const [isShow, setIsShow] = useState(false);
 
-  const showModal = () => {
+  const showModal = (state) => {
     //se crea un useState tipo boolean
-    setIsShow(true);
+    setIsShow(state);
     console.log('diste clic');
   }
 
@@ -17,7 +17,7 @@ function App() {
     <>
       <h1>Hello World</h1>
       <Button onShowModal={showModal}>Ayuda</Button>
-      {isShow && <HelpForm/>}
+      {isShow && <HelpForm onShowModal={showModal}/>}
     </>
   );
 }
