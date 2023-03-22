@@ -4,7 +4,7 @@ const Button = (props) => {
 
   const handlerOnClick = () => {
     //pasar un booleano
-    props.onShowModal();
+    props.onShowModal(true);
   } 
 
   return (
