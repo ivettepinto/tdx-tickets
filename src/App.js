@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Button from "./components/buttons/Button";
 import HelpForm from "./components/helpForm/HelpForm";
-import Field from "./components/field/Field";
+import myJson from "./helpers/helperForm.json";
 
 function App() {
 
@@ -18,8 +18,7 @@ function App() {
     <>
       <h1>Hello World</h1>
       <Button onShowModal={showModal}>Ayuda</Button>
-      <Button>Manage instruction</Button>
-      {isShow && <HelpForm onShowModal={showModal} />}
+      {isShow && <HelpForm onShowModal={showModal} data={myJson.field} />}
     </>
   );
 }
