@@ -1,0 +1,47 @@
+@startuml form
+
+Object Help
+
+Object HelpForm
+Object Id
+Object Category
+Object SubCategory
+Object Field
+Object URLLink
+Object TextField 
+Object ImageField
+Object TableField
+Object Align
+Object Simple
+Object Title1
+Object Title2
+Object ImgUrl
+Object TextRow
+Object Text
+Object Header
+
+Help *-- HelpForm
+HelpForm *-- Id
+HelpForm *-- Category
+HelpForm *-- SubCategory
+HelpForm *--"*" Field
+
+Field *-up- Text
+Field *-up- URLLink
+Field *-up- Align
+
+TextField -up-|> Field
+ImageField -up-|> Field
+TableField -up-|> Field
+
+Simple -up-|> TextField
+Title1 -up-|> TextField
+Title2 -up-|> TextField
+
+ImageField *-- ImgUrl
+
+TableField *-- TextRow:body
+TableField *-- Header
+
+skinparam monochrome reverse
+@enduml
