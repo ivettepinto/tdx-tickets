@@ -27,7 +27,7 @@ HelpForm *-- SubCategory
 HelpForm *--"*" Field
 
 Field *-up- Text
-Field *-up- URLLink
+Field o-up- URLLink
 Field *-up- Align
 
 TextField -up-|> Field
