@@ -2,14 +2,8 @@ import React from 'react'
 import './Button.css'
 
 const Button = (props) => {
-
-  const handlerOnClick = () => {
-    //pasar un booleano
-    props.onShowModal(true);
-  } 
-
   return (
-      <button onClick={handlerOnClick} className='HelpButton'>
+      <button onClick={props.onShowModal} className='HelpButton'>
         {props.children}
       </button>
   )

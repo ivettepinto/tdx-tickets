@@ -1,5 +1,5 @@
 import React from "react";
-import TableField from "../tableField/TableField";
+import TableField from "./tableField/TableField";
 
 
 const Field = (props) => {
@@ -33,13 +33,10 @@ const Field = (props) => {
 
 
   return (
-    <div>
+    <>
       <h2>{props.title}</h2>
       {getTag()}
-      
-      
-
-    </div>
+    </>
   );
 };
 
