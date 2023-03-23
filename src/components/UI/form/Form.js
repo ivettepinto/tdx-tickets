@@ -1,55 +1,115 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Form = () => {
+  const [category, setCategory] = useState("");
+  const [subcategory, setSubcategory] = useState("");
+  const [text, setText] = useState("");
+  const [alignment, setAlignment] = useState("");
+  const [urllink, setUrllink] = useState("");
+  const [type, setType] = useState("");
+  const [typeText, setTypeText] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   return (
     <>
       <form>
         <label htmlFor="category">Category</label>
-        <input id="category" type="text" required={true} />
-        <br/>
+        <input
+          onChange={(e) => setCategory(e.target.value)}
+          id="category"
+          type="text"
+          required={true}
+        />
+        <br />
 
         <label htmlFor="subcategory">Subcategory</label>
-        <input id="subcategory" type="text" required={true} />
-        <br/>
+        <input
+          onChange={(e) => setSubcategory(e.target.value)}
+          id="subcategory"
+          type="text"
+          required={true}
+        />
+        <br />
 
         <label htmlFor="text">Text</label>
-        <input id="text" type="text" required={true} />
-        <br/>
+        <input
+          onChange={(e) => setText(e.target.value)}
+          id="text"
+          type="text"
+          required={true}
+        />
+        <br />
 
         <label htmlFor="alignment">Alignment</label>
-        <select name="align-items" id="align-items" required={true}>
+        <select
+          onChange={(e) => setAlignment(e.target.value)}
+          name="align-items"
+          id="align-items"
+          required={true}
+        >
           <option value="left">Left</option>
           <option value="right">Right</option>
           <option value="center">Center</option>
           <option value="justify">Justify</option>
         </select>
-        <br/>
+        <br />
 
         <label htmlFor="urllink">Url link</label>
-        <input id="urllink" type="text" required={true} />
-        <br/>
+        <input
+          onChange={(e) => setUrllink(e.target.value)}
+          id="urllink"
+          type="text"
+          required={true}
+        />
+        <br />
 
         <label htmlFor="type">Type</label>
-        <select name="type" id="type" required={true}>
+        <select
+          onChange={(e) => setType(e.target.value)}
+          name="type"
+          id="type"
+          required={true}
+        >
           <option value="image">Image</option>
           <option value="text">Text</option>
           <option value="table">Table</option>
         </select>
-        <br/>
+        <br />
 
-        <label htmlFor="text">Type Text</label>
-        <select name="type" id="type" required={true}>
-          <option value="h1">Tittle 1</option>
-          <option value="h2">Tittle 2</option>
-          <option value="p">Simple</option>
-        </select>
-        <br/>
+        {type === "text" ? (
+          <>
+            <label htmlFor="text">Type Text</label>
+            <select
+              onChange={(e) => setTypeText(e.target.value)}
+              name="type"
+              id="type"
+              required={true}
+            >
+              <option value="h1">Tittle 1</option>
+              <option value="h2">Tittle 2</option>
+              <option value="p">Simple</option>
+            </select>
+            <br />
+          </>
+        ) : (
+          <></>
+        )}
 
-        <label htmlFor="imageurl">Url Image</label>
-        <input id="imageurl" type="text" required={true} />
-        <br/>
+        {type === "image" ? (
+          <>
+            <label htmlFor="imageurl">Url Image</label>
+            <input
+              onChange={(e) => setImageUrl(e.target.value)}
+              id="imageurl"
+              type="text"
+              required={true}
+            />
+            <br />
+          </>
+        ) : (
+          <></>
+        )}
 
-        <input type="submit"/>
+        <input type="submit" />
       </form>
     </>
   );
