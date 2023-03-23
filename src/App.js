@@ -1,19 +1,20 @@
 import React, {useState} from "react";
-import Button from "./components/buttons/Button";
-import HelpForm from "./components/helpForm/HelpForm";
+import Button from "./components/UI/buttons/Button";
+import HelpForm from "./components/UI/helpForm/HelpForm";
 import myJson from "./helpers/helperForm.json";
 
 function App() {
 
   const [isShow, setIsShow] = useState(false);
 
-  const showModal = (state) => {
-    //se crea un useState tipo boolean
-    setIsShow(state);
-    console.log('diste clic');
+  const showModal = () => {
+    if(isShow === true) {
+      setIsShow(false);
+    } else {
+      setIsShow(true);
+    }
   }
 
-  //aca debe de existir un useState booleano que te muestre el modal
   return (
     <>
       <h1>Hello World</h1>
