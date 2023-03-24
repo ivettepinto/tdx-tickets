@@ -95,7 +95,7 @@ const Form = () => {
         </div>
 
         <div className="form-field">
-        <label htmlFor="text">Type Text</label>
+        <label htmlFor="text">Type</label>
         <select
           defaultValue="default"
           onChange={(e) => setNewFieldType(e.target.value)}

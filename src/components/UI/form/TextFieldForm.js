@@ -53,12 +53,12 @@ const TextField = (props) => {
           <label htmlFor="type">Type Text</label>
           <select
             onChange={(event) => props.handleOnChange(props.index, event)}
+            defaultValue="default-typetext"
             name="type"
             id="type"
             required={true}
-            value={props.type}
           >
-            <option value="default" disabled={true}>
+            <option value="default-typetext" disabled={true}>
               Select a type
             </option>
             <option value="h1">Tittle 1</option>
