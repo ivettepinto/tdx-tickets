@@ -14,7 +14,14 @@ const TextField = (props) => {
       />
       <br />
       <label htmlFor="alignment">Alignment</label>
-      <select name="align-items" id="align-items" required={true}>
+      <select
+        onChange={(event) => props.handleOnChange(props.index, event)}
+        name="alignment"
+        id="alignment"
+        required={true}
+        value={props.alignment}
+      >
+        <option value="default" disabled={true}>Select a type</option>
         <option value="left">Left</option>
         <option value="right">Right</option>
         <option value="center">Center</option>
@@ -33,19 +40,20 @@ const TextField = (props) => {
       />
       <br />
 
-      <label htmlFor="typeText">type Text</label>
+      <label htmlFor="type">Type Text</label>
       <select
         onChange={(event) => props.handleOnChange(props.index, event)}
-        name="typeText"
-        id="typeText"
+        name="type"
+        id="type"
         required={true}
         value={props.type}
       >
+        <option value="default" disabled={true}>Select a type</option>
         <option value="h1">Tittle 1</option>
         <option value="h2">Tittle 2</option>
         <option value="p">Simple</option>
       </select>
-      <br />
+      <br /><br />
     </>
   );
 };

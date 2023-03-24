@@ -7,6 +7,7 @@ const Form = () => {
   const [subcategory, setSubcategory] = useState("");
   const [fields, setFields] = useState([]);
   const [newFieldType, setNewFieldType] = useState("");
+  const [jsonToSend, setJsonToSend] = useState({});
 
   const handleOnChange = (index, event) => {
     let data = [...fields];
@@ -16,7 +17,7 @@ const Form = () => {
 
   const addFields = (type) => {
     let genericField = {
-      type: "",
+      type: newFieldType,
       text: "",
       alignment: "",
       urllink: "",
@@ -25,16 +26,26 @@ const Form = () => {
     switch (type) {
       case "text": 
         specificField = { ...genericField };
+        setFields([...fields, specificField]);
         break;
       case "image": 
-        specificField = { ...genericField, imageurl: "" };
+        specificField = { ...genericField, imageurl: ""};
+        setFields([...fields, specificField]);
         break;
       default:
-        specificField = {...genericField};
         break;
     }
+  }
 
-    setFields([...fields, specificField]);
+  const handlerOnClickSubmit = (e) => {
+    e.preventDefault();
+    setJsonToSend((prevState) => ({
+      ...prevState,
+      category,
+      subcategory,
+      fields: fields,
+    }));
+    console.log(jsonToSend);
   }
 
   return (
@@ -79,7 +90,7 @@ const Form = () => {
           </div>
         ))}
 
-        <button type="submit">Enviar</button>
+        <button onClick={handlerOnClickSubmit} type="submit">Enviar</button>
       </form>
     </>
   );
