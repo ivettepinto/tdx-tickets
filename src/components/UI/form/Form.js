@@ -39,13 +39,11 @@ const Form = () => {
 
   const handlerOnClickSubmit = (e) => {
     e.preventDefault();
-    setJsonToSend((prevState) => ({
-      ...prevState,
+    setJsonToSend({
       category,
       subcategory,
       fields: fields,
-    }));
-    console.log(jsonToSend);
+    });
   }
 
   return (
@@ -92,6 +90,7 @@ const Form = () => {
 
         <button onClick={handlerOnClickSubmit} type="submit">Enviar</button>
       </form>
+      {JSON.stringify(jsonToSend)}
     </>
   );
 };
