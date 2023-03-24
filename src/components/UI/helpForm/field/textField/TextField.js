@@ -3,7 +3,7 @@ import React from "react";
 const TextField = (props) => {
   const getTypeOfField = () => {
     switch (props.type) {
-      case "title1":
+      case "h1":
         return props.urllink !== "" ? (
           <a style={{ textAlign: `${props.align}` }} href={props.urllink}>
             <h1>{props.text}</h1>
@@ -12,7 +12,7 @@ const TextField = (props) => {
           <h1 style={{ textAlign: `${props.align}` }}>{props.text}</h1>
         );
 
-      case "title2":
+      case "h2":
         return props.urllink !== "" ? (
           <a style={{ textAlign: `${props.align}` }} href={props.urllink}>
             <h2>{props.text}</h2>
@@ -23,7 +23,7 @@ const TextField = (props) => {
           </h2>
         );
 
-      case "simple":
+      case "p":
         return props.urllink !== "" ? (
           <a style={{ textAlign: `${props.align}` }} href={props.urllink}>
             <p>{props.text}</p>

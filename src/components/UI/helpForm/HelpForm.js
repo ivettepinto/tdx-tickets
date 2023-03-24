@@ -4,11 +4,6 @@ import Field from "./field/Field";
 import Button from "../buttons/Button";
 
 const HelpForm = (props) => {
-
-  //call a function to fetch the information
-  //function with fetchData... message with "loading..."
-  //settimeout with 1s
-
   return (
     <div className="helpform">
       <div className="modal">

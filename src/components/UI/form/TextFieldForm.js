@@ -1,6 +1,9 @@
 import React from "react";
 
 const TextField = (props) => {
+
+  const typeFlag = props.type;
+
   return (
     <>
       <label htmlFor="text">Text</label>
@@ -21,7 +24,9 @@ const TextField = (props) => {
         required={true}
         value={props.alignment}
       >
-        <option value="default" disabled={true}>Select a type</option>
+        <option value="default" disabled={true}>
+          Select a type
+        </option>
         <option value="left">Left</option>
         <option value="right">Right</option>
         <option value="center">Center</option>
@@ -40,20 +45,29 @@ const TextField = (props) => {
       />
       <br />
 
-      <label htmlFor="type">Type Text</label>
-      <select
-        onChange={(event) => props.handleOnChange(props.index, event)}
-        name="type"
-        id="type"
-        required={true}
-        value={props.type}
-      >
-        <option value="default" disabled={true}>Select a type</option>
-        <option value="h1">Tittle 1</option>
-        <option value="h2">Tittle 2</option>
-        <option value="p">Simple</option>
-      </select>
-      <br /><br />
+      {(props.type !== "image" & props.type !== "table") ? (
+        <>
+          <label htmlFor="type">Type Text</label>
+          <select
+            onChange={(event) => props.handleOnChange(props.index, event)}
+            name="type"
+            id="type"
+            required={true}
+            value={props.type}
+          >
+            <option value="default" disabled={true}>
+              Select a type
+            </option>
+            <option value="h1">Tittle 1</option>
+            <option value="h2">Tittle 2</option>
+            <option value="p">Simple</option>
+          </select>
+          <br />
+          <br />
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

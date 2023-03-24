@@ -7,52 +7,52 @@
             "text": "Title",
             "align": "center",
             "urllink": "",
-            "type": "title1"
+            "type": "h1"
         },
         {
             "text": "Lorem imppsum ...",
             "align": "justify",
             "urllink": "",
-            "type": "simple"
+            "type": "p"
         },
         {
             "text": "Paso1",
             "align": "left",
             "urllink": "http://holamundo.com",
-            "type": "title2"
+            "type": "h2"
         },
         {
             "text": "Lorem imppsum ...",
             "align": "justify",
             "urllink": "",
-            "type": "simple"
+            "type": "p"
         },
         {
             "text": "agile certified",
             "align": "right",
             "urllink": "http://agile.com",
             "type": "image",
-            "imagurl": "http://imgurl.com/image1.jpg"
+            "imageurl": "http://imgurl.com/image1.jpg"
         }
         ,
         {
             "text": "Paso2",
             "align": "left",
             "urllink": "http://holamundo.com",
-            "type": "title2"
+            "type": "h2"
         },
         {
             "text": "Lorem imppsum ...",
             "align": "justify",
             "urllink": "",
-            "type": "simple"
+            "type": "p"
         },
         {
             "text": "agile certified",
             "align": "right",
             "urllink": "http://agile.com",
             "type": "image",
-            "imagurl": "http://imgurl.com/image1.jpg"
+            "imageurl": "https://images.ctfassets.net/rz9m1rynx8pv/7MvxmRIN8IF6W3B71OXJKn/87ee7dc9c6d26ac5ae90418cb1afe856/telus-health-mypet-offers-virtual-care-visits-with-veterinarians.jpg"
         }
         ,
         {
