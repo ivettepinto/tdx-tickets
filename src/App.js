@@ -18,8 +18,8 @@ function App() {
 
   return (
     <>
-      <h1>Hello World</h1>
-      <Button onShowModal={showModal}>Ayuda</Button>
+      <h1>TELUS International - TDX</h1>
+      <Button onShowModal={showModal}>Get help</Button>
       <Form/>
       {isShow && <HelpForm onShowModal={showModal} data={myJson.field} view={"modalView"} />}
     </>

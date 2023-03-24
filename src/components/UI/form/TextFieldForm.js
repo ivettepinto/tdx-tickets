@@ -1,49 +1,54 @@
 import React from "react";
 
-const TextField = (props) => {
+import "./Form.css";
 
+const TextField = (props) => {
   return (
     <>
-      <label htmlFor="text">Text</label>
-      <input
-        onChange={(event) => props.handleOnChange(props.index, event)}
-        id="text"
-        name="text"
-        type="text"
-        required={true}
-        value={props.text}
-      />
-      <br />
-      <label htmlFor="alignment">Alignment</label>
-      <select
-        onChange={(event) => props.handleOnChange(props.index, event)}
-        name="alignment"
-        id="alignment"
-        required={true}
-        value={props.alignment}
-      >
-        <option value="default" disabled={true}>
-          Select a type
-        </option>
-        <option value="left">Left</option>
-        <option value="right">Right</option>
-        <option value="center">Center</option>
-        <option value="justify">Justify</option>
-      </select>
-      <br />
+      <div className="form-field">
+        <label htmlFor="text">Text</label>
+        <input
+          onChange={(event) => props.handleOnChange(props.index, event)}
+          id="text"
+          name="text"
+          type="text"
+          required={true}
+          value={props.text}
+        />
+      </div>
 
-      <label htmlFor="urllink">Url link</label>
-      <input
-        onChange={(event) => props.handleOnChange(props.index, event)}
-        id="urllink"
-        name="urllink"
-        type="text"
-        required={true}
-        value={props.urllink}
-      />
-      <br />
+      <div className="form-field">
+        <label htmlFor="alignment">Alignment</label>
+        <select
+          onChange={(event) => props.handleOnChange(props.index, event)}
+          name="alignment"
+          id="alignment"
+          required={true}
+          value={props.alignment}
+        >
+          <option value="default" disabled={true}>
+            Select a type
+          </option>
+          <option value="left">Left</option>
+          <option value="right">Right</option>
+          <option value="center">Center</option>
+          <option value="justify">Justify</option>
+        </select>
+      </div>
 
-      {(props.type !== "image" & props.type !== "table") ? (
+      <div className="form-field">
+        <label htmlFor="urllink">Url link</label>
+        <input
+          onChange={(event) => props.handleOnChange(props.index, event)}
+          id="urllink"
+          name="urllink"
+          type="text"
+          required={true}
+          value={props.urllink}
+        />
+      </div>
+
+      {(props.type !== "image") & (props.type !== "table") ? (
         <>
           <label htmlFor="type">Type Text</label>
           <select
