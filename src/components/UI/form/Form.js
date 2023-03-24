@@ -1,19 +1,35 @@
-import React, { useState } from "react";
-import ImageField from "./ImageField";
-import TextField from "./TextField";
+import React, { useState, useEffect } from "react";
+import ImageField from "./ImageFieldForm";
+import TextField from "./TextFieldForm";
+import HelpForm from "../helpForm/HelpForm";
 
 const Form = () => {
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [fields, setFields] = useState([]);
   const [newFieldType, setNewFieldType] = useState("");
-  const [jsonToSend, setJsonToSend] = useState({});
+  const [jsonToSend, setJsonToSend] = useState({
+      id: "",
+      category: "",
+      subcategory: "",
+      field: [],
+  });
+
+  const [isShow, setIsShow] = useState(false);
+
+  const showModal = () => {
+    if (isShow === true) {
+      setIsShow(false);
+    } else {
+      setIsShow(true);
+    }
+  };
 
   const handleOnChange = (index, event) => {
     let data = [...fields];
     data[index][event.target.name] = event.target.value;
     setFields(data);
-  }
+  };
 
   const addFields = (type) => {
     let genericField = {
@@ -21,30 +37,36 @@ const Form = () => {
       text: "",
       alignment: "",
       urllink: "",
-    }
+    };
     let specificField = {};
     switch (type) {
-      case "text": 
-        specificField = { ...genericField };
+      case "text":
+        specificField = { ...genericField};
         setFields([...fields, specificField]);
         break;
-      case "image": 
-        specificField = { ...genericField, imageurl: ""};
+      case "image":
+        specificField = { ...genericField, imageurl: "" };
         setFields([...fields, specificField]);
         break;
       default:
         break;
     }
-  }
+  };
 
   const handlerOnClickSubmit = (e) => {
     e.preventDefault();
+
     setJsonToSend({
+      id: Math.random(),
       category,
       subcategory,
-      fields: fields,
+      field: fields,
     });
-  }
+  };
+
+  useEffect(() => {
+    console.log(jsonToSend);
+  }, [jsonToSend]);
 
   return (
     <>
@@ -68,29 +90,51 @@ const Form = () => {
         <br />
 
         <label htmlFor="text">Type Text</label>
-        <select defaultValue="default" onChange={e => setNewFieldType(e.target.value)} name="type" id="type" required={true} >
-          <option value="default" disabled={true}>Select a type</option>
+        <select
+          defaultValue="default"
+          onChange={(e) => setNewFieldType(e.target.value)}
+          name="type"
+          id="type"
+          required={true}
+        >
+          <option value="default" disabled={true}>
+            Select a type
+          </option>
           <option value="image">Image</option>
           <option value="text">Text</option>
           <option value="table">Table</option>
-
         </select>
         <br />
 
-        <button onClick={() => { addFields(newFieldType) }}>Add fields </button>
+        <button
+          onClick={() => {
+            addFields(newFieldType);
+          }}
+        >
+          Add fields{" "}
+        </button>
         {fields.map((input, index) => (
           <div key={index}>
-            <TextField {...input} index={index} handleOnChange={handleOnChange} />
-            {
-              "imageurl" in input && <ImageField {...input} index={index} handleOnChange={handleOnChange} />
-
-            }
+            <TextField
+              {...input}
+              index={index}
+              handleOnChange={handleOnChange}
+            />
+            {"imageurl" in input && (
+              <ImageField
+                {...input}
+                index={index}
+                handleOnChange={handleOnChange}
+              />
+            )}
           </div>
         ))}
 
-        <button onClick={handlerOnClickSubmit} type="submit">Enviar</button>
+        <button onClick={handlerOnClickSubmit} type="submit">
+          Enviar
+        </button>
       </form>
-      {JSON.stringify(jsonToSend)}
+      {jsonToSend.field.length > 0 && <HelpForm onShowModal={showModal} data={jsonToSend.field} view={"preview"} />}
     </>
   );
 };
