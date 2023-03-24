@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ImageField from "./ImageField";
+import TextField from "./TextField";
 
 const Form = () => {
   const [category, setCategory] = useState("");
@@ -21,11 +23,18 @@ const Form = () => {
     }
     let specificField = {};
     switch (type) {
-      case "text": specificField = { ...genericField }
-      case "image": specificField = { ...genericField, imageUrl: "" }
+      case "text": 
+        specificField = { ...genericField };
+        break;
+      case "image": 
+        specificField = { ...genericField, imageurl: "" };
+        break;
+      default:
+        specificField = {...genericField};
+        break;
     }
 
-    setFields([...fields, specificField])
+    setFields([...fields, specificField]);
   }
 
   return (
@@ -36,7 +45,6 @@ const Form = () => {
           onChange={(e) => setCategory(e.target.value)}
           id="category"
           type="text"
-          required={true}
           name="category"
         />
         <br />
@@ -46,13 +54,13 @@ const Form = () => {
           onChange={(e) => setSubcategory(e.target.value)}
           id="subcategory"
           type="text"
-          required={true}
           name="subcategory"
         />
         <br />
 
         <label htmlFor="text">Type Text</label>
-        <select onChange={e => setNewFieldType(e.target.value)} name="type" id="type" required={true} >
+        <select defaultValue="default" onChange={e => setNewFieldType(e.target.value)} name="type" id="type" required={true} >
+          <option value="default" disabled={true}>Select a type</option>
           <option value="image">Image</option>
           <option value="text">Text</option>
           <option value="table">Table</option>
@@ -60,41 +68,18 @@ const Form = () => {
         </select>
         <br />
 
-        <button onClick={() => { addFields(newFieldType) }}> Add fields </button>
+        <button onClick={() => { addFields(newFieldType) }}>Add fields </button>
         {fields.map((input, index) => (
           <div key={index}>
-            <label htmlFor="text">Text</label>
-            <input onChange={(event) => handleOnChange(index, event)} id="text" name="text" type="text" required={true} value={input.text} />
-            <br />
-            <label htmlFor="alignment">Alignment</label>
-            <select name="align-items" id="align-items" required={true}>
-              <option value="left">Left</option>
-              <option value="right">Right</option>
-              <option value="center">Center</option>
-              <option value="justify">Justify</option>
-            </select>
-            <br />
-
-            <label htmlFor="urllink">Url link</label>
-            <input onChange={(event) => handleOnChange(index, event)} id="urllink" name="urllink" type="text" required={true} value={input.urllink} />
-            <br />
-
-            <label htmlFor="typeText">type Text</label>
-            <select onChange={(event) => handleOnChange(index, event)} name="typeText" id="typeText" required={true} value={input.type}>
-              <option value="h1">Tittle 1</option>
-              <option value="h2">Tittle 2</option>
-              <option value="p">Simple</option>
-            </select>
-            <br />
-
-            {fields[index][input.type] === "text"
+            <TextField {...input} index={index} handleOnChange={handleOnChange} />
+            {
+              "imageurl" in input && <ImageField {...input} index={index} handleOnChange={handleOnChange} />
 
             }
-
           </div>
         ))}
 
-        <input type="submit" />
+        <button type="submit">Enviar</button>
       </form>
     </>
   );
