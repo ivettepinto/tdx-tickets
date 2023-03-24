@@ -21,7 +21,7 @@ function App() {
       <h1>Hello World</h1>
       <Button onShowModal={showModal}>Ayuda</Button>
       <Form/>
-      {isShow && <HelpForm onShowModal={showModal} data={myJson.field} />}
+      {isShow && <HelpForm onShowModal={showModal} data={myJson.field} view={"modalView"} />}
     </>
   );
 }

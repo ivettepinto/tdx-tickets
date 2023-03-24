@@ -8,7 +8,12 @@ const Form = () => {
   const [subcategory, setSubcategory] = useState("");
   const [fields, setFields] = useState([]);
   const [newFieldType, setNewFieldType] = useState("");
-  const [jsonToSend, setJsonToSend] = useState({});
+  const [jsonToSend, setJsonToSend] = useState({
+      id: "",
+      category: "",
+      subcategory: "",
+      field: [],
+  });
 
   const [isShow, setIsShow] = useState(false);
 
@@ -52,12 +57,11 @@ const Form = () => {
     e.preventDefault();
 
     setJsonToSend({
+      id: Math.random(),
       category,
       subcategory,
       field: fields,
     });
-
-    showModal();
   };
 
   useEffect(() => {
@@ -130,7 +134,7 @@ const Form = () => {
           Enviar
         </button>
       </form>
-      {isShow && <HelpForm onShowModal={showModal} data={jsonToSend.field} />}
+      {jsonToSend.field.length > 0 && <HelpForm onShowModal={showModal} data={jsonToSend.field} view={"preview"} />}
     </>
   );
 };

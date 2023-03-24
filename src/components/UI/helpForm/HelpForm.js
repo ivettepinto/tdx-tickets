@@ -5,12 +5,14 @@ import Button from "../buttons/Button";
 
 const HelpForm = (props) => {
   return (
-    <div className="helpform">
-      <div className="modal">
+    <div className={`${props.view === "modalView" && "helpform"}`}>
+      <div className={`${props.view === "modalView" && "modal"}`}>
         {props.data.map((item, index)=>(
           <Field key={index} {...item}/>
         ))}
-        <Button onShowModal={props.onShowModal}>Close</Button>
+        {
+          props.view === "modalView" && <Button onShowModal={props.onShowModal}>Close</Button>
+        }
       </div>
     </div>
   );

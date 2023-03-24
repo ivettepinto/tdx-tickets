@@ -2,8 +2,6 @@ import React from "react";
 
 const TextField = (props) => {
 
-  const typeFlag = props.type;
-
   return (
     <>
       <label htmlFor="text">Text</label>
