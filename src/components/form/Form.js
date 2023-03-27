@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ImageFieldForm from "./ImageFieldForm";
 import TextFieldForm from "./TextFieldForm";
-import HelpForm from "../helpForm/HelpForm";
+import typeOptions from "./createField/TypeOptions";
 
 import "./Form.css";
-import InputField from "./InputField";
-import SelectField from "./SelectField";
+import InputField from "../UI/input/InputField";
+import SelectField from "../UI/input/SelectField";
 
-const Form = () => {
+const Form = ({props}) => {
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [fields, setFields] = useState([]);
@@ -68,14 +68,11 @@ const Form = () => {
     });
   };
 
-  useEffect(() => {
-  }, [fields]);
 
-  const typeOptions = [
-    { name: "Image", value: "image" },
-    { name: "Text", value: "text" },
-    { name: "Table", value: "table" },
-  ];
+
+  useEffect(() => {getCreatingFields(fields)}, [fields]);
+
+  
 
   return (
     <div className="container">
@@ -135,16 +132,8 @@ const Form = () => {
         </button>
       </form>
 
-      <div className="column">
-        <h2 className="column-title">Preview</h2>
-        {fields.length > 0 && (
-          <HelpForm
-            onShowModal={showModal}
-            data={fields}
-            view={"preview"}
-          />
-        )}
-      </div>
+      
+      
     </div>
   );
 };

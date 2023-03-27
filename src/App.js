@@ -3,6 +3,7 @@ import Button from "./components/UI/buttons/Button";
 import HelpForm from "./components/helpForm/HelpForm";
 import Form from "./components/form/Form";
 import getService from "./helpers/GetService";
+import Layout from "./components/Layout";
 
 function App() {
 
@@ -22,8 +23,8 @@ function App() {
     <>
       <h1>TELUS International - TDX</h1>
       <Button onShowModal={showModal}>Get help</Button>
-      <Form/>
-      {isShow && <HelpForm onShowModal={showModal} data={getInstructionsById.field} view={"modalView"} />}
+      <Layout/>
+     {isShow && <HelpForm onShowModal={showModal} data={getInstructionsById.field} view={"modalView"} />}
     </>
   );
 }
