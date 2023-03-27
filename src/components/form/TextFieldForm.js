@@ -13,8 +13,9 @@ const TextFieldForm = (props) => {
             name="type"
             id="type"
             required={true}
+            defaultValue=""
           >
-            <option selected={true} hidden={true} disabled={true} value="">
+            <option hidden={true} disabled={true} value="">
               Select a type
             </option>
             <option value="h1">Tittle 1</option>
@@ -44,8 +45,9 @@ const TextFieldForm = (props) => {
           name="align"
           id="align"
           required={true}
+          defaultValue=""
         >
-          <option selected={true} hidden={true} disabled={true} value="">
+          <option hidden={true} disabled={true} value="">
             Select a type
           </option>
           <option value="left">Left</option>

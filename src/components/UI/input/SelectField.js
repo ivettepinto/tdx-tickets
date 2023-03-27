@@ -9,10 +9,11 @@ const SelectField = (props) => {
         name={props.name.toLowerCase()}
         id={props.name.toLowerCase()}
         required={props.required}
+        defaultValue=""
       >
-        <option selected={true} hidden={true} disabled={true} value="">
-          Select a(n) {props.name.toLowerCase()}
-        </option>
+        <option hidden={true} disabled={true} value="">
+              Select a type
+            </option>
         {props.options.map((item, index) => (
           <option key={index} value={item.value}>
             {item.name}
