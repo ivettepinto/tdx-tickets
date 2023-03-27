@@ -3,16 +3,18 @@ import ImageField from "./ImageFieldForm";
 import TextField from "./TextFieldForm";
 import HelpForm from "../helpForm/HelpForm";
 
+import "./Form.css";
+
 const Form = () => {
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [fields, setFields] = useState([]);
   const [newFieldType, setNewFieldType] = useState("");
   const [jsonToSend, setJsonToSend] = useState({
-      id: "",
-      category: "",
-      subcategory: "",
-      field: [],
+    id: "",
+    category: "",
+    subcategory: "",
+    field: [],
   });
 
   const [isShow, setIsShow] = useState(false);
@@ -41,7 +43,7 @@ const Form = () => {
     let specificField = {};
     switch (type) {
       case "text":
-        specificField = { ...genericField};
+        specificField = { ...genericField };
         setFields([...fields, specificField]);
         break;
       case "image":
@@ -69,27 +71,31 @@ const Form = () => {
   }, [jsonToSend]);
 
   return (
-    <>
-      <form>
-        <label htmlFor="category">Category</label>
-        <input
-          onChange={(e) => setCategory(e.target.value)}
-          id="category"
-          type="text"
-          name="category"
-        />
-        <br />
+    <div className="container">
+      <form className="column">
+      <h2 className="column-title">Help form data</h2>
+        <div className="form-field">
+          <label htmlFor="category">Category</label>
+          <input
+            onChange={(e) => setCategory(e.target.value)}
+            id="category"
+            type="text"
+            name="category"
+          />
+        </div>
 
-        <label htmlFor="subcategory">Subcategory</label>
-        <input
-          onChange={(e) => setSubcategory(e.target.value)}
-          id="subcategory"
-          type="text"
-          name="subcategory"
-        />
-        <br />
+        <div className="form-field">
+          <label htmlFor="subcategory">Subcategory</label>
+          <input
+            onChange={(e) => setSubcategory(e.target.value)}
+            id="subcategory"
+            type="text"
+            name="subcategory"
+          />
+        </div>
 
-        <label htmlFor="text">Type Text</label>
+        <div className="form-field">
+        <label htmlFor="text">Type</label>
         <select
           defaultValue="default"
           onChange={(e) => setNewFieldType(e.target.value)}
@@ -104,9 +110,10 @@ const Form = () => {
           <option value="text">Text</option>
           <option value="table">Table</option>
         </select>
-        <br />
+        </div>
 
         <button
+          className="btn"
           onClick={() => {
             addFields(newFieldType);
           }}
@@ -130,12 +137,22 @@ const Form = () => {
           </div>
         ))}
 
-        <button onClick={handlerOnClickSubmit} type="submit">
-          Enviar
+        <button className="btn" onClick={handlerOnClickSubmit} type="submit">
+          Preview
         </button>
       </form>
-      {jsonToSend.field.length > 0 && <HelpForm onShowModal={showModal} data={jsonToSend.field} view={"preview"} />}
-    </>
+
+      <div className="column">
+        <h2 className="column-title">Preview</h2>
+        {jsonToSend.field.length > 0 && (
+          <HelpForm
+            onShowModal={showModal}
+            data={jsonToSend.field}
+            view={"preview"}
+          />
+        )}
+      </div>
+    </div>
   );
 };
 

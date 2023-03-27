@@ -1,7 +1,7 @@
 import React from "react";
 import "./HelpForm.css";
 import Field from "./field/Field";
-import Button from "../buttons/Button";
+import Button from "../UI/buttons/Button";
 
 const HelpForm = (props) => {
   return (
