@@ -69,7 +69,7 @@ const Form = () => {
   };
 
   useEffect(() => {
-    console.log(fields)
+    console.log(fields);
   }, [fields]);
 
   const typeOptions = [
@@ -138,7 +138,7 @@ const Form = () => {
 
       <div className="column">
         <h2 className="column-title">Preview</h2>
-        {jsonToSend.field.length > 0 && (
+        {fields.length > 0 && (
           <HelpForm
             onShowModal={showModal}
             data={fields}

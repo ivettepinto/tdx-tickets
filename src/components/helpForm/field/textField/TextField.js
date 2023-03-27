@@ -32,7 +32,7 @@ const TextField = (props) => {
           <p style={{ textAlign: `${props.align}` }}>{props.text}</p>
         );
       default:
-        <></>;
+        <>{props.text}</>;
         break;
     }
   };

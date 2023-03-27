@@ -27,8 +27,7 @@ const Field = (props) => {
 
       default:
         // return <TextField {...props} />;
-        <></>;
-        break;
+        return <>{props.text}</>;
     }
   };
 
