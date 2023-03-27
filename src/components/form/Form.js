@@ -39,7 +39,7 @@ const Form = () => {
     let genericField = {
       type: newFieldType,
       text: "",
-      alignment: "",
+      align: "",
       urllink: "",
     };
     let specificField = {};

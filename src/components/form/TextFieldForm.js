@@ -39,13 +39,13 @@ const TextField = (props) => {
       </div>
 
       <div className="form-field">
-        <label htmlFor="alignment">Alignment</label>
+        <label htmlFor="align">Alignment</label>
         <select
           onChange={(event) => props.handleOnChange(props.index, event)}
-          name="alignment"
-          id="alignment"
+          name="align"
+          id="align"
           required={true}
-          value={props.alignment}
+          defaultValue="default"
         >
           <option value="default" disabled={true}>
             Select a type
