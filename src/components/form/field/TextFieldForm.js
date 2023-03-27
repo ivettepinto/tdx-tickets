@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Form.css";
+import "../Form.css";
 
 const TextField = (props) => {
   return (
