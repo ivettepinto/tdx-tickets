@@ -5,17 +5,18 @@ const SelectField = (props) => {
     <div className={props.className}>
       <label htmlFor={props.name.toLowerCase()}>{props.name}</label>
       <select
-        defaultValue="default"
         onChange={(e) => props.setSelect(e.target.value)}
         name={props.name.toLowerCase()}
         id={props.name.toLowerCase()}
         required={props.required}
       >
-        <option value="default" disabled={true}>
-          Select a(n) {props.name}
+        <option selected={true} hidden={true} disabled={true} value="">
+          Select a(n) {props.name.toLowerCase()}
         </option>
         {props.options.map((item, index) => (
-            <option key={index} value={item.value}>{item.name}</option>
+          <option key={index} value={item.value}>
+            {item.name}
+          </option>
         ))}
       </select>
     </div>

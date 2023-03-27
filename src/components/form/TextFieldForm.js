@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Form.css";
 
-const TextField = (props) => {
+const TextFieldForm = (props) => {
   return (
     <>
       {(props.type !== "image") & (props.type !== "table") ? (
@@ -10,12 +10,11 @@ const TextField = (props) => {
           <label htmlFor="type">Type Text</label>
           <select
             onChange={(event) => props.handleOnChange(props.index, event)}
-            defaultValue="default-typetext"
             name="type"
             id="type"
             required={true}
           >
-            <option value="default-typetext" disabled={true}>
+            <option selected={true} hidden={true} disabled={true} value="">
               Select a type
             </option>
             <option value="h1">Tittle 1</option>
@@ -45,9 +44,8 @@ const TextField = (props) => {
           name="align"
           id="align"
           required={true}
-          defaultValue="default"
         >
-          <option value="default" disabled={true}>
+          <option selected={true} hidden={true} disabled={true} value="">
             Select a type
           </option>
           <option value="left">Left</option>
@@ -72,4 +70,4 @@ const TextField = (props) => {
   );
 };
 
-export default TextField;
+export default TextFieldForm;
