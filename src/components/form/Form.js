@@ -4,6 +4,8 @@ import TextField from "./TextFieldForm";
 import HelpForm from "../helpForm/HelpForm";
 
 import "./Form.css";
+import InputField from "./InputField";
+import SelectField from "./SelectField";
 
 const Form = () => {
   const [category, setCategory] = useState("");
@@ -67,50 +69,42 @@ const Form = () => {
   };
 
   useEffect(() => {
-    console.log(jsonToSend);
-  }, [jsonToSend]);
+    console.log(fields)
+  }, [fields]);
+
+  const typeOptions = [
+    { name: "Image", value: "image" },
+    { name: "Text", value: "text" },
+    { name: "Table", value: "table" },
+  ];
 
   return (
     <div className="container">
       <form className="column">
-      <h2 className="column-title">Help form data</h2>
-        <div className="form-field">
-          <label htmlFor="category">Category</label>
-          <input
-            onChange={(e) => setCategory(e.target.value)}
-            id="category"
-            type="text"
-            name="category"
-          />
-        </div>
-
-        <div className="form-field">
-          <label htmlFor="subcategory">Subcategory</label>
-          <input
-            onChange={(e) => setSubcategory(e.target.value)}
-            id="subcategory"
-            type="text"
-            name="subcategory"
-          />
-        </div>
-
-        <div className="form-field">
-        <label htmlFor="text">Type</label>
-        <select
-          defaultValue="default"
-          onChange={(e) => setNewFieldType(e.target.value)}
-          name="type"
-          id="type"
+        <h2 className="column-title">Help form data</h2>
+        <InputField
+          className={"form-field"}
+          name={"category"}
+          inputType={"text"}
+          setInput={setCategory}
           required={true}
-        >
-          <option value="default" disabled={true}>
-            Select a type
-          </option>
-          <option value="image">Image</option>
-          <option value="text">Text</option>
-          <option value="table">Table</option>
-        </select>
-        </div>
+        />
+
+        <InputField
+          className={"form-field"}
+          name={"subcategory"}
+          inputType={"text"}
+          setInput={setSubcategory}
+          required={true}
+        />
+
+        <SelectField
+          className={"form-field"}
+          name={"Type"}
+          setSelect={setNewFieldType}
+          required={true}
+          options={typeOptions}
+        />
 
         <button
           className="btn"
@@ -138,7 +132,7 @@ const Form = () => {
         ))}
 
         <button className="btn" onClick={handlerOnClickSubmit} type="submit">
-          Preview
+          Submit
         </button>
       </form>
 
@@ -147,7 +141,7 @@ const Form = () => {
         {jsonToSend.field.length > 0 && (
           <HelpForm
             onShowModal={showModal}
-            data={jsonToSend.field}
+            data={fields}
             view={"preview"}
           />
         )}
