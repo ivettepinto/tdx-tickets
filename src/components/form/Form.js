@@ -39,7 +39,7 @@ const Form = () => {
     let genericField = {
       type: newFieldType,
       text: "",
-      alignment: "",
+      align: "",
       urllink: "",
     };
     let specificField = {};
@@ -69,7 +69,6 @@ const Form = () => {
   };
 
   useEffect(() => {
-    console.log(fields);
   }, [fields]);
 
   const typeOptions = [
