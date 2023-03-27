@@ -1,21 +1,31 @@
-import React from "react";
+import React,{useState} from "react";
 
-import "../Form.css";
 
 const ImageField = (props) => {
+  const [imageUrl, setImageUrl] = useState((props.state.imageurl)?props.state["imageurl"]:"");
+  const handleChangeInput = (event) => {
+    setImageUrl(event.target.value);
+    props.setState((prevState)=>{
+      return {
+        ...prevState,
+        imageUrl: imageUrl
+      }
+    });
+  }
+  
   return (
     <>
-      <div className="form-field">
-      <label htmlFor="imageurl">Image Url</label>
-      <input
-        onChange={event => props.handleOnChange(props.index, event)}
-        name="imageurl"
-        id="imageurl"
-        type="text"
-        required={true}
-        value={props.imageurl}
-      />
-      </div>
+      <label className={props.label}>
+                "Image URL":
+                <input
+                    type="text"
+                    id="imageurl"
+                    name="imageurl"
+                    value={imageUrl}
+                    onChange={handleChangeInput}
+                />
+            </label>
+      
     </>
   );
 };

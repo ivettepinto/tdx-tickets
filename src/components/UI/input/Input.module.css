@@ -1,0 +1,9 @@
+.error{
+    font-style: oblique;
+    font-size: x-small;
+    color: red;
+  }
+
+  .label{
+    display: block;
+  }
