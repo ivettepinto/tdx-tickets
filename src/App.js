@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Button from "./components/UI/buttons/Button";
-import HelpForm from "./components/UI/helpForm/HelpForm";
-import Form from "./components/UI/form/Form";
+import HelpForm from "./components/helpForm/HelpForm";
+import Form from "./components/form/Form";
 import getService from "./helpers/GetService";
 
 function App() {
