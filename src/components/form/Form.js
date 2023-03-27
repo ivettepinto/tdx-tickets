@@ -69,7 +69,7 @@ const Form = () => {
   };
 
   useEffect(() => {
-    console.log(fields)
+    console.log(fields);
   }, [fields]);
 
   const typeOptions = [

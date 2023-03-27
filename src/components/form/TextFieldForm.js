@@ -5,6 +5,27 @@ import "./Form.css";
 const TextField = (props) => {
   return (
     <>
+      {(props.type !== "image") & (props.type !== "table") ? (
+        <>
+          <label htmlFor="type">Type Text</label>
+          <select
+            onChange={(event) => props.handleOnChange(props.index, event)}
+            defaultValue="default-typetext"
+            name="type"
+            id="type"
+            required={true}
+          >
+            <option value="default-typetext" disabled={true}>
+              Select a type
+            </option>
+            <option value="h1">Tittle 1</option>
+            <option value="h2">Tittle 2</option>
+            <option value="p">Simple</option>
+          </select>
+        </>
+      ) : (
+        <></>
+      )}
       <div className="form-field">
         <label htmlFor="text">Text</label>
         <input
@@ -47,30 +68,6 @@ const TextField = (props) => {
           value={props.urllink}
         />
       </div>
-
-      {(props.type !== "image") & (props.type !== "table") ? (
-        <>
-          <label htmlFor="type">Type Text</label>
-          <select
-            onChange={(event) => props.handleOnChange(props.index, event)}
-            defaultValue="default-typetext"
-            name="type"
-            id="type"
-            required={true}
-          >
-            <option value="default-typetext" disabled={true}>
-              Select a type
-            </option>
-            <option value="h1">Tittle 1</option>
-            <option value="h2">Tittle 2</option>
-            <option value="p">Simple</option>
-          </select>
-          <br />
-          <br />
-        </>
-      ) : (
-        <></>
-      )}
     </>
   );
 };
