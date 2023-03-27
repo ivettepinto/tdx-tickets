@@ -4,4 +4,4 @@ const typeOptions = [
     { name: "Table", value: "table" },
   ];
 
-export default typeOptions
+export default typeOptions;

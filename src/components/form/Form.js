@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ImageFieldForm from "./ImageFieldForm";
 import TextFieldForm from "./TextFieldForm";
-import typeOptions from "./createField/TypeOptions";
+import typeOptions from "../../helpers/TypeOptions";
 
 import "./Form.css";
 import InputField from "../UI/input/InputField";
 import SelectField from "../UI/input/SelectField";
 
-const Form = ({props}) => {
+const Form = (props) => {
+
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [fields, setFields] = useState([]);
@@ -68,11 +69,13 @@ const Form = ({props}) => {
     });
   };
 
-
-
-  useEffect(() => {getCreatingFields(fields)}, [fields]);
-
+  //==> se desestructura as a first step
+  useEffect(() => {
+    console.log(fields);
+    props.onAddingFiels(fields);
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fields]);
 
   return (
     <div className="container">
