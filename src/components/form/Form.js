@@ -8,6 +8,8 @@ import DetailField from "./detailField/DetailField";
 
 const Form = () => {
 
+  
+
   return (
     <article>
       <section>
