@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ImageField from "./ImageFieldForm";
-import TextField from "./TextFieldForm";
+import ImageFieldForm from "./ImageFieldForm";
+import TextFieldForm from "./TextFieldForm";
 import HelpForm from "../helpForm/HelpForm";
 
 import "./Form.css";
@@ -115,13 +115,13 @@ const Form = () => {
         </button>
         {fields.map((input, index) => (
           <div key={index}>
-            <TextField
+            <TextFieldForm
               {...input}
               index={index}
               handleOnChange={handleOnChange}
             />
             {"imageurl" in input && (
-              <ImageField
+              <ImageFieldForm
                 {...input}
                 index={index}
                 handleOnChange={handleOnChange}

@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Form.css";
 
-const ImageField = (props) => {
+const ImageFieldForm = (props) => {
   return (
     <>
       <div className="form-field">
@@ -20,4 +20,4 @@ const ImageField = (props) => {
   );
 };
 
-export default ImageField;
+export default ImageFieldForm;
