@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "Category": "Example",
-        "SubCategory": "",
+        "category": "Ayuda ventana principal",
+        "subcategory": "Primeros pasos para usar el programa",
         "field": [
             {
                 "text": "Title",
@@ -80,8 +80,8 @@
     },
     {
         "id": 2,
-        "Category": "Example2",
-        "SubCategory": "22",
+        "category": "Registrar",
+        "subcategory": "Como registrarse",
         "field": [
             {
                 "text": "Title",
