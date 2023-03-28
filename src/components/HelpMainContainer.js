@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CreateUpdateForm from "./createHelpDataForm/CreateUpdateForm";
 import PreviewForm from "./previewHelpForm/PreviewForm";
+import HelpList from "./previewHelpForm/helpList/HelpList";
+import listItemsJson from "../CompleteExample.json"
 
 const HelpMainContainer = () => {
   const [previewerFields, setPreviewerFields] = useState([]);
@@ -16,6 +18,7 @@ const HelpMainContainer = () => {
     <>
       <CreateUpdateForm onAddingFiels={getCreatingFields} />
       <PreviewForm props={previewerFields} />
+      <HelpList listItems={listItemsJson}/>
     </>
   );
 };
