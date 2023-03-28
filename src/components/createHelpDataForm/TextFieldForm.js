@@ -7,7 +7,8 @@ const TextFieldForm = (props) => {
     <>
       {(props.type !== "image") & (props.type !== "table") ? (
         <>
-          <label htmlFor="type">Type Text</label>
+
+          <label htmlFor="type" className="form-field">Type Text</label>
           <select
             onChange={(event) => props.handleOnChange(props.index, event)}
             name="type"

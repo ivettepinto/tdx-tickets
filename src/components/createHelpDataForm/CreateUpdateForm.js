@@ -86,10 +86,11 @@ const CreateUpdateForm = (props) => {
             addFields(newFieldType);
           }}
         >
-          Add fields{" "}
+        Add fields
         </button>
         {fields.map((input, index) => (
-          <div key={index}>
+          <div key={index} className="formField">
+            <legend className="form-field">{input.type}</legend>
             <TextFieldForm
               {...input}
               index={index}
