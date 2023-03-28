@@ -26,7 +26,6 @@ const Field = (props) => {
         return <TableField header={props.header} textrow={props.textrow} />;
 
       default:
-        // return <TextField {...props} />;
         return <>{props.text}</>;
     }
   };
