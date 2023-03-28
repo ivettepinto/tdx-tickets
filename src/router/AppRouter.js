@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from "../pages/HomePage";
 import Navbar from "../components/UI/navbar/Navbar";
-import CreateUpdateForm from "../components/createHelpDataForm/CreateUpdateForm";
 import CreateUpdatePage from "../pages/CreateUpdatePage";
 
 const AppRouter = () => {
@@ -15,7 +14,7 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
-          path="/cFeate"
+          path="/create"
           element={<CreateUpdatePage />}
         />
         <Route path="*" element={<HomePage />} />

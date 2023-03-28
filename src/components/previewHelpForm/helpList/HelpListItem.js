@@ -3,7 +3,6 @@ import React from "react";
 const HelpListItem = (props) => {
   return (
     <>
-      {console.log(props)}
       <td>{props.category}</td>
       <td>{props.subcategory}</td>
       <td>
