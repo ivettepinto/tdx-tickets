@@ -6,6 +6,7 @@ import typeOptions from "../../helpers/TypeOptions";
 import "./Form.css";
 import InputField from "../UI/input/InputField";
 import SelectField from "../UI/input/SelectField";
+import { CategoryDetail } from "./CategoryDetail";
 
 const Form = (props) => {
 
@@ -81,22 +82,8 @@ const Form = (props) => {
     <div className="container">
       <form className="column">
         <h2 className="column-title">Help form data</h2>
-        <InputField
-          className={"form-field"}
-          name={"category"}
-          inputType={"text"}
-          setInput={setCategory}
-          required={true}
-        />
-
-        <InputField
-          className={"form-field"}
-          name={"subcategory"}
-          inputType={"text"}
-          setInput={setSubcategory}
-          required={true}
-        />
-
+        <CategoryDetail onSetCategory={setCategory} onSetSubCategory={setSubcategory} />
+        <hr />
         <SelectField
           className={"form-field"}
           name={"Type"}
@@ -134,9 +121,6 @@ const Form = (props) => {
           Submit
         </button>
       </form>
-
-      
-      
     </div>
   );
 };
