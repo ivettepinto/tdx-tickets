@@ -3,12 +3,11 @@ import ImageFieldForm from "./ImageFieldForm";
 import TextFieldForm from "./TextFieldForm";
 import typeOptions from "../../helpers/TypeOptions";
 
-import "./Form.css";
-import InputField from "../UI/input/InputField";
+import "./CreateUpdateForm.css";
 import SelectField from "../UI/input/SelectField";
-import { CategoryDetail } from "./CategoryDetail";
+import { CategoryDetailFieldForm } from "./CategoryDetailFieldForm";
 
-const Form = (props) => {
+const CreateUpdateForm = (props) => {
 
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
@@ -21,15 +20,6 @@ const Form = (props) => {
     field: [],
   });
 
-  const [isShow, setIsShow] = useState(false);
-
-  const showModal = () => {
-    if (isShow === true) {
-      setIsShow(false);
-    } else {
-      setIsShow(true);
-    }
-  };
 
   const handleOnChange = (index, event) => {
     let data = [...fields];
@@ -70,19 +60,17 @@ const Form = (props) => {
     });
   };
 
-  //==> se desestructura as a first step
   useEffect(() => {
-    console.log(fields);
     props.onAddingFiels(fields);
-  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fields]);
+
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [fields]);
 
   return (
     <div className="container">
       <form className="column">
         <h2 className="column-title">Help form data</h2>
-        <CategoryDetail onSetCategory={setCategory} onSetSubCategory={setSubcategory} />
+        <CategoryDetailFieldForm onSetCategory={setCategory} onSetSubCategory={setSubcategory} />
         <hr />
         <SelectField
           className={"form-field"}
@@ -125,4 +113,4 @@ const Form = (props) => {
   );
 };
 
-export default Form;
+export default CreateUpdateForm;

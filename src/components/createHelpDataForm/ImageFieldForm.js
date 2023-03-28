@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Form.css";
+import "./CreateUpdateForm.css";
 
 const ImageFieldForm = (props) => {
   return (
