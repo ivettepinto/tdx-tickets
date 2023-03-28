@@ -1,14 +1,14 @@
 import React from "react";
 import "./HelpForm.css";
-import Field from "./field/Field";
+import FieldTypeGenerator from "./fieldGenerator/FieldTypeGenerator";
 import Button from "../UI/buttons/Button";
 
-const HelpForm = (props) => {
+const ShowTemplateModal = (props) => {
   return (
     <div className={`${props.view === "modalView" && "helpform"}`}>
       <div className={`${props.view === "modalView" && "modal"}`}>
         {props.data.map((item, index)=>(
-          <Field key={index} {...item}/>
+          <FieldTypeGenerator key={index} {...item}/>
         ))}
         {
           props.view === "modalView" && <Button onShowModal={props.onShowModal}>Close</Button>
@@ -18,4 +18,4 @@ const HelpForm = (props) => {
   );
 };
 
-export default HelpForm;
+export default ShowTemplateModal;

@@ -2,7 +2,7 @@ import React from "react";
 import InputField from "../UI/input/InputField";
 
 
-export const CategoryDetail = (props) => {
+export const CategoryDetailFieldForm = (props) => {
   return (
     <>
       <InputField
