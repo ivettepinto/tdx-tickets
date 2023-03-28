@@ -1,7 +1,7 @@
 import React from 'react'
 import HelpListItem from './HelpListItem'
 
-const HelpList = (props) => {
+const  HelpList = (props) => {
   return (
     <div>
         <table>
