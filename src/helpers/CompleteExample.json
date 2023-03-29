@@ -8,12 +8,14 @@
                 "text": "Title",
                 "align": "center",
                 "urllink": "",
+                "classname": "testCss",
                 "type": "h1"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
+                "classname": "",
                 "type": "p"
             },
             {
@@ -26,6 +28,7 @@
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
+                "classname": "",
                 "type": "p"
             },
             {
@@ -33,6 +36,7 @@
                 "align": "right",
                 "urllink": "none",
                 "type": "image",
+                "classname": "",
                 "imagurl": "http://imgurl.com/image1.jpg"
             }
             ,
@@ -40,12 +44,14 @@
                 "text": "Paso2",
                 "align": "left",
                 "urllink": "http://holamundo.com",
+                "classname": "",
                 "type": "h2"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
+                "classname": "",
                 "type": "p"
             },
             {
@@ -53,6 +59,7 @@
                 "align": "right",
                 "urllink": "http://agile.com",
                 "type": "image",
+                "classname": "",
                 "imagurl": "http://imgurl.com/image1.jpg"
             }
         ]
@@ -66,24 +73,28 @@
                 "text": "Title",
                 "align": "center",
                 "urllink": "",
+                "classname": "",
                 "type": "h1"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
+                "classname": "",
                 "type": "p"
             },
             {
                 "text": "Paso1",
                 "align": "left",
                 "urllink": "http://holamundo.com",
+                "classname": "",
                 "type": "h2"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
+                "classname": "",
                 "type": "p"
             },
             {
@@ -91,6 +102,7 @@
                 "align": "right",
                 "urllink": "http://agile.com",
                 "type": "image",
+                "classname": "",
                 "imagurl": "http://imgurl.com/image1.jpg"
             }
             ,
@@ -98,12 +110,14 @@
                 "text": "Paso2",
                 "align": "left",
                 "urllink": "http://holamundo.com",
+                "classname": "",
                 "type": "h2"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
+                "classname": "",
                 "type": "p"
             },
             {
@@ -111,6 +125,7 @@
                 "align": "right",
                 "urllink": "http://agile.com",
                 "type": "image",
+                "classname": "",
                 "imagurl": "http://imgurl.com/image1.jpg"
             }
         ]

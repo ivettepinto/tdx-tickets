@@ -59,6 +59,17 @@ const TextFieldForm = (props) => {
       </div>
 
       <div className="form-field">
+        <label htmlFor="classname">CSS Class</label>
+        <input
+          onChange={(event) => props.handleOnChange(props.index, event)}
+          id="classname"
+          name="classname"
+          type="classname"
+          value={props.classname}
+        />
+      </div>
+
+      <div className="form-field">
         <label htmlFor="urllink">Url link</label>
         <input
           onChange={(event) => props.handleOnChange(props.index, event)}

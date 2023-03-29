@@ -34,6 +34,7 @@ const CreateUpdateForm = () => {
       type: newFieldType,
       text: "",
       align: "",
+      classname: "",
       urllink: "",
     };
     let specificField = {};
