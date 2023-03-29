@@ -18,9 +18,7 @@ const TextField = (props) => {
             <h2>{props.text}</h2>
           </a>
         ) : (
-          <h2 style={{ textAlign: `${props.align}` }} data-url={props.urllink}>
-            {props.text}
-          </h2>
+          <h2 style={{ textAlign: `${props.align}` }}>{props.text}</h2>
         );
 
       case "p":

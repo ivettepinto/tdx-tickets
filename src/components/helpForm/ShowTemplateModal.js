@@ -14,6 +14,10 @@ const ShowTemplateModal = (props) => {
         {newFields && newFields.map((item, index)=>( 
           <FieldTypeGenerator key={index} {...item}/>
         ))}
+        {props.data && props.data.map((item, index)=>( 
+          <FieldTypeGenerator key={index} {...item}/>
+        ))}
+        <br />
         {
           props.view === "modalView" && <Button onShowModal={props.onShowModal}>Close</Button>
         }
