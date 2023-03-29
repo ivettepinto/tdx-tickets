@@ -13,7 +13,6 @@ const TextField = (props) => {
         );
 
       case "h2":
-        console.log(props.type);
         return props.urllink !== "" ? (
           <a style={{ textAlign: `${props.align}` }} href={props.urllink}>
             <h2>{props.text}</h2>
