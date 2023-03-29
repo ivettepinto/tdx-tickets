@@ -2,13 +2,13 @@ import { createContext, useState } from 'react';
 
 const HelpContext = createContext({
     fields: [],
-    previewerFields: [],
+    jsonData: [],
     onAddingFields: () => {},
     onGetCreatingFields: () => {},
 });
 
 const HelpProvider = (props) => {
-    const [previewerFields, setPreviewerFields] = useState([]);
+    const [jsonData, setJsonData] = useState([]);
     const [fields, setFields] = useState([]);
 
     const addingFields = (newFields) => {
@@ -19,7 +19,7 @@ const HelpProvider = (props) => {
     }
     
     const getCreatingFields = (fields) => {
-        setPreviewerFields((prevState) => ({
+        setJsonData((prevState) => ({
           ...prevState,
           fields,
         }));
@@ -29,7 +29,7 @@ const HelpProvider = (props) => {
         <HelpContext.Provider
             value={{
                 fields: fields,
-                previewerFields: previewerFields,
+                jsonData: jsonData,
                 onAddingFields: addingFields,
                 onGetCreatingFields: getCreatingFields,
             }}>

@@ -9,7 +9,6 @@ import { HelpContext } from "../../context/HelpFormsContext";
 import "./CreateUpdateForm.css";
 
 const CreateUpdateForm = () => {
-
   const { onGetCreatingFields, onAddingFields } = useContext(HelpContext);
 
   const [category, setCategory] = useState("");
@@ -97,19 +96,22 @@ const CreateUpdateForm = () => {
       {fields.map((input, index) => (
         <div key={index} className="formField">
           <fieldset>
-            <legend>{input.type}</legend>
-          <TextFieldForm
-            {...input}
-            index={index}
-            handleOnChange={handleOnChange}
-          />
-          {"imageurl" in input && (
-            <ImageFieldForm
+            <legend>
+              <b>{input.type.toUpperCase()}</b>
+            </legend>
+
+            <TextFieldForm
               {...input}
               index={index}
               handleOnChange={handleOnChange}
             />
-          )}
+            {"imageurl" in input && (
+              <ImageFieldForm
+                {...input}
+                index={index}
+                handleOnChange={handleOnChange}
+              />
+            )}
           </fieldset>
         </div>
       ))}
