@@ -9,7 +9,7 @@ import { HelpContext } from "../../context/HelpFormsContext";
 import "./CreateUpdateForm.css";
 
 const CreateUpdateForm = () => {
-  const { onGetCreatingFields, onAddingFields } = useContext(HelpContext);
+  const { onSubmitDataIntoJson, onAddingFields } = useContext(HelpContext);
 
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
@@ -55,14 +55,11 @@ const CreateUpdateForm = () => {
 
     setJsonToSend({
       id: Math.random(),
-      category :category,
-      subcategory : subcategory,
+      category: category,
+      subcategory: subcategory,
       field: fields,
     });
-
-    console.log(jsonToSend)
-
-    onGetCreatingFields(jsonToSend);
+    onSubmitDataIntoJson(jsonToSend);
   };
 
   useEffect(() => {

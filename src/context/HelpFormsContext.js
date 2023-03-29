@@ -4,7 +4,7 @@ const HelpContext = createContext({
     fields: [],
     jsonData: [],
     onAddingFields: () => {},
-    onGetCreatingFields: () => {},
+    onSubmitDataIntoJson: () => {},
 });
 
 const HelpProvider = (props) => {
@@ -18,14 +18,12 @@ const HelpProvider = (props) => {
         }))
     }
     
-    const getCreatingFields = (fields) => {
+    const submitDataIntoJson = (fields) => {
         setJsonData((prevState) => ({
           ...prevState,
           fields,
         }));
     };
-
-    console.log(jsonData)
 
     return (
         <HelpContext.Provider
@@ -33,7 +31,7 @@ const HelpProvider = (props) => {
                 fields: fields,
                 jsonData: jsonData,
                 onAddingFields: addingFields,
-                onGetCreatingFields: getCreatingFields,
+                onSubmitDataIntoJson: submitDataIntoJson,
             }}>
             {props.children}
         </HelpContext.Provider>
