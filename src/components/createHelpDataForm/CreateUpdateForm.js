@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ImageFieldForm from "./ImageFieldForm";
 import TextFieldForm from "./TextFieldForm";
 import typeOptions from "../../helpers/TypeOptions";
 import SelectField from "../UI/input/SelectField";
 import { CategoryDetailFieldForm } from "./CategoryDetailFieldForm";
+import { HelpContext } from "../../context/HelpFormsContext";
 
 import "./CreateUpdateForm.css";
 
-const CreateUpdateForm = (props) => {
+const CreateUpdateForm = () => {
+
+  const { onGetCreatingFields, onAddingFields } = useContext(HelpContext);
+
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [fields, setFields] = useState([]);
@@ -56,10 +60,12 @@ const CreateUpdateForm = (props) => {
       subcategory,
       field: fields,
     });
+
+    onGetCreatingFields(jsonToSend);
   };
 
   useEffect(() => {
-    props.onAddingFiels(fields);
+    onAddingFields(fields);
 
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fields]);

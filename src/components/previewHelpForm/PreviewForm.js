@@ -3,13 +3,11 @@ import ShowTemplateModal from '../helpForm/ShowTemplateModal'
 
 import "../createHelpDataForm/CreateUpdateForm.css";
 
-const PreviewForm = (props) => {
+const PreviewForm = () => {
   return (
     <section className="column">
         <h2 className="column-title">Preview</h2>
           <ShowTemplateModal
-            onShowModal={props.showModal}
-            data={props.fields}
             view={"preview"}
           />
       </section>
