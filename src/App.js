@@ -1,5 +1,5 @@
 import React from "react";
-import HelpMainContainer from "./components/HelpMainContainer";
+import AppRouter from "./router/AppRouter";
 
 
 function App() {
@@ -7,8 +7,8 @@ function App() {
 
   return (
     <>
-      <h1>TELUS International - TDX</h1>
-      <HelpMainContainer/>
+      {/* <HelpMainContainer/> */}
+      <AppRouter />
     </>
   );
 }
