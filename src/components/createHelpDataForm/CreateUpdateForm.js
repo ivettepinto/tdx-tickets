@@ -54,8 +54,8 @@ const CreateUpdateForm = (props) => {
 
     setJsonToSend({
       id: Math.random(),
-      category,
-      subcategory,
+      category :category,
+      subcategory : subcategory,
       field: fields,
     });
   };
