@@ -21,6 +21,7 @@ const CreateUpdateForm = () => {
     subcategory: "",
     field: [],
   });
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleOnChange = (index, event) => {
     let data = [...fields];
@@ -50,6 +51,17 @@ const CreateUpdateForm = () => {
     }
   };
 
+  const sendMessageDoneAndClean = () => {
+    setCategory("");
+    setSubcategory("");
+    setFields([]);
+
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 3000);
+  };
+
   const handlerOnClickSubmit = (e) => {
     e.preventDefault();
 
@@ -60,6 +72,7 @@ const CreateUpdateForm = () => {
       field: fields,
     });
     onSubmitDataIntoJson(jsonToSend);
+    sendMessageDoneAndClean();
   };
 
   useEffect(() => {
@@ -69,7 +82,7 @@ const CreateUpdateForm = () => {
   }, [fields]);
 
   return (
-    <form className="column" >
+    <form className="column">
       <h2 className="column-title">Help form data</h2>
       <CategoryDetailFieldForm
         onSetCategory={setCategory}
@@ -118,6 +131,7 @@ const CreateUpdateForm = () => {
       <button className="btn" onClick={handlerOnClickSubmit} type="submit">
         Submit
       </button>
+      {showMessage && <h2 style={{color: '#66cc00', textAlign: 'center'}}>Record submitted successfully!</h2>}
     </form>
   );
 };
