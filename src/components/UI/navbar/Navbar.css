@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .nav {
     display: flex;
     color: white;
@@ -17,6 +21,7 @@
   .nav li {
     margin: 0;
     margin-left: 2rem;
+    margin-right: 2rem;
   }
   
   .nav a {
