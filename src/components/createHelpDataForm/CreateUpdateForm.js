@@ -59,8 +59,13 @@ const CreateUpdateForm = () => {
       subcategory: subcategory,
       field: fields,
     });
-    onSubmitDataIntoJson(jsonToSend);
   };
+  
+  useEffect(() => {
+    onSubmitDataIntoJson(jsonToSend);
+  
+  }, [jsonToSend]);
+  
 
   useEffect(() => {
     onAddingFields(fields);
