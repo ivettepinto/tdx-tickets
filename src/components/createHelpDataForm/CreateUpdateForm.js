@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ImageFieldForm from "./ImageFieldForm";
 import TextFieldForm from "./TextFieldForm";
 import typeOptions from "../../helpers/TypeOptions";
-
-import "./CreateUpdateForm.css";
 import SelectField from "../UI/input/SelectField";
 import { CategoryDetailFieldForm } from "./CategoryDetailFieldForm";
+import { HelpContext } from "../../context/HelpFormsContext";
 
-const CreateUpdateForm = (props) => {
+import "./CreateUpdateForm.css";
+
+const CreateUpdateForm = () => {
+  const { onGetCreatingFields, onAddingFields } = useContext(HelpContext);
 
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
@@ -19,7 +21,6 @@ const CreateUpdateForm = (props) => {
     subcategory: "",
     field: [],
   });
-
 
   const handleOnChange = (index, event) => {
     let data = [...fields];
@@ -58,38 +59,49 @@ const CreateUpdateForm = (props) => {
       subcategory : subcategory,
       field: fields,
     });
+
+    console.log(jsonToSend)
+
+    onGetCreatingFields(jsonToSend);
   };
 
   useEffect(() => {
-    props.onAddingFiels(fields);
+    onAddingFields(fields);
 
-  //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [fields]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fields]);
 
   return (
-    <div className="container">
-      <form className="column">
-        <h2 className="column-title">Help form data</h2>
-        <CategoryDetailFieldForm onSetCategory={setCategory} onSetSubCategory={setSubcategory} />
-        <hr />
-        <SelectField
-          className={"form-field"}
-          name={"Type"}
-          setSelect={setNewFieldType}
-          required={true}
-          options={typeOptions}
-        />
+    <form className="column" >
+      <h2 className="column-title">Help form data</h2>
+      <CategoryDetailFieldForm
+        onSetCategory={setCategory}
+        onSetSubCategory={setSubcategory}
+      />
+      <hr />
+      <SelectField
+        className={"form-field"}
+        name={"Type"}
+        setSelect={setNewFieldType}
+        required={true}
+        options={typeOptions}
+      />
 
-        <button
-          className="btn"
-          onClick={() => {
-            addFields(newFieldType);
-          }}
-        >
-          Add fields{" "}
-        </button>
-        {fields.map((input, index) => (
-          <div key={index}>
+      <button
+        className="btn"
+        onClick={() => {
+          addFields(newFieldType);
+        }}
+      >
+        Add fields
+      </button>
+      {fields.map((input, index) => (
+        <div key={index} className="formField">
+          <fieldset>
+            <legend>
+              <b>{input.type.toUpperCase()}</b>
+            </legend>
+
             <TextFieldForm
               {...input}
               index={index}
@@ -102,14 +114,14 @@ const CreateUpdateForm = (props) => {
                 handleOnChange={handleOnChange}
               />
             )}
-          </div>
-        ))}
+          </fieldset>
+        </div>
+      ))}
 
-        <button className="btn" onClick={handlerOnClickSubmit} type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+      <button className="btn" onClick={handlerOnClickSubmit} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 

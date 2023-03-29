@@ -1,15 +1,14 @@
 import React, { useContext } from 'react'
 import HelpList from '../components/previewHelpForm/helpList/HelpList'
-import { HelpContext } from '../context/HelpFormsContext';
+import helpListJson from "../helpers/CompleteExample.json"
 
 import "./HomePage.css";
 
 const HomePage = () => {
-  const {jsonData} = useContext(HelpContext);
 
   return (
     <div className="container">
-      <HelpList listItems={jsonData} />
+      <HelpList listItems={helpListJson} />
     </div>
   )
 }

@@ -1,17 +1,15 @@
  import React from 'react'
 import ShowTemplateModal from '../helpForm/ShowTemplateModal'
 
-const PreviewForm = ({props}) => {
+import "../createHelpDataForm/CreateUpdateForm.css";
+
+const PreviewForm = () => {
   return (
-    <section className="preview-section">
+    <section className="column">
         <h2 className="column-title">Preview</h2>
-        {Array.isArray(props.fields) && (
           <ShowTemplateModal
-            onShowModal={props.showModal}
-            data={props.fields}
             view={"preview"}
           />
-        )}
       </section>
   )
 }
