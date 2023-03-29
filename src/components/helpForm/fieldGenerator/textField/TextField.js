@@ -13,14 +13,13 @@ const TextField = (props) => {
         );
 
       case "h2":
+        console.log(props.type);
         return props.urllink !== "" ? (
           <a style={{ textAlign: `${props.align}` }} href={props.urllink}>
             <h2>{props.text}</h2>
           </a>
         ) : (
-          <h2 style={{ textAlign: `${props.align}` }} data-url={props.urllink}>
-            {props.text}
-          </h2>
+          <h2 style={{ textAlign: `${props.align}` }}>{props.text}</h2>
         );
 
       case "p":
