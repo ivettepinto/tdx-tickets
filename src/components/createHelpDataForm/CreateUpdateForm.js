@@ -77,7 +77,8 @@ const CreateUpdateForm = () => {
   
   useEffect(() => {
     onSubmitDataIntoJson(jsonToSend);
-  
+    
+  //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [jsonToSend]);
   
 

@@ -33,7 +33,6 @@ const Field = (props) => {
 
   return (
     <>
-      <h2>{props.title}</h2>
       {getTag()}
     </>
   );
