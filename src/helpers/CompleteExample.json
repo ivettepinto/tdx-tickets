@@ -6,27 +6,27 @@
         "field": [
             {
                 "text": "Title",
-                "align": "left",
+                "align": "center",
                 "urllink": "",
-                "type": "title1"
+                "type": "h1"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
-                "type": "simple"
+                "type": "p"
             },
             {
                 "text": "Paso1",
                 "align": "left",
                 "urllink": "http://holamundo.com",
-                "type": "title2"
+                "type": "h2"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
-                "type": "simple"
+                "type": "p"
             },
             {
                 "text": "agile certified",
@@ -40,13 +40,13 @@
                 "text": "Paso2",
                 "align": "left",
                 "urllink": "http://holamundo.com",
-                "type": "title2"
+                "type": "h2"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
-                "type": "simple"
+                "type": "p"
             },
             {
                 "text": "agile certified",
@@ -54,27 +54,6 @@
                 "urllink": "http://agile.com",
                 "type": "image",
                 "imagurl": "http://imgurl.com/image1.jpg"
-            }
-            ,
-            {
-                "text": "agile certified",
-                "align": "right",
-                "urllink": "http://agile.com",
-                "type": "table",
-                "header": [
-                    {"text": "header1"},
-                    {"text": "header2"}
-                ],
-                "textrow": [
-                    [
-                        {"text": "row1"},
-                        {"text": "row1"}
-                    ],
-                    [
-                        {"text": "row2"},
-                        {"text": "row2"}
-                    ]
-                ]
             }
         ]
     },
@@ -85,27 +64,27 @@
         "field": [
             {
                 "text": "Title",
-                "align": "left",
+                "align": "center",
                 "urllink": "",
-                "type": "title1"
+                "type": "h1"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
-                "type": "simple"
+                "type": "p"
             },
             {
                 "text": "Paso1",
                 "align": "left",
                 "urllink": "http://holamundo.com",
-                "type": "title2"
+                "type": "h2"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
-                "type": "simple"
+                "type": "p"
             },
             {
                 "text": "agile certified",
@@ -119,13 +98,13 @@
                 "text": "Paso2",
                 "align": "left",
                 "urllink": "http://holamundo.com",
-                "type": "title2"
+                "type": "h2"
             },
             {
                 "text": "Lorem imppsum ...",
                 "align": "justify",
                 "urllink": "",
-                "type": "simple"
+                "type": "p"
             },
             {
                 "text": "agile certified",
@@ -133,27 +112,6 @@
                 "urllink": "http://agile.com",
                 "type": "image",
                 "imagurl": "http://imgurl.com/image1.jpg"
-            }
-            ,
-            {
-                "text": "agile certified",
-                "align": "right",
-                "urllink": "http://agile.com",
-                "type": "table",
-                "header": [
-                    {"text": "header1"},
-                    {"text": "header2"}
-                ],
-                "textrow": [
-                    [
-                        {"text": "row1"},
-                        {"text": "row1"}
-                    ],
-                    [
-                        {"text": "row2"},
-                        {"text": "row2"}
-                    ]
-                ]
             }
         ]
     }
