@@ -74,6 +74,12 @@ const CreateUpdateForm = () => {
     onSubmitDataIntoJson(jsonToSend);
     sendMessageDoneAndClean();
   };
+  
+  useEffect(() => {
+    onSubmitDataIntoJson(jsonToSend);
+  
+  }, [jsonToSend]);
+  
 
   useEffect(() => {
     onAddingFields(fields);
