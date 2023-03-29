@@ -7,7 +7,7 @@ const ShowTemplateModal = (props) => {
   return (
     <div className={`${props.view === "modalView" && "helpform"}`}>
       <div className={`${props.view === "modalView" && "modal"}`}>
-        {props.data.map((item, index)=>(
+        {props.data && props.data.map((item, index)=>(
           <FieldTypeGenerator key={index} {...item}/>
         ))}
         {
