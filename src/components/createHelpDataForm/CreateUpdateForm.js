@@ -9,13 +9,13 @@ import { HelpContext } from "../../context/HelpFormsContext";
 
 import "./CreateUpdateForm.css";
 
-const CreateUpdateForm = () => {
+const CreateUpdateForm = (props) => {
   const { onSubmitDataIntoJson, onAddingFields } =
     useContext(HelpContext);
 
-  const [category, setCategory] = useState("");
-  const [subcategory, setSubcategory] = useState("");
-  const [fields, setFields] = useState([]);
+  const [category, setCategory] = useState(props.category ?? "");
+  const [subcategory, setSubcategory] = useState(props.subcategory ?? "");
+  const [fields, setFields] = useState(props.fields ?? []);
   const [newFieldType, setNewFieldType] = useState("");
   const [jsonToSend, setJsonToSend] = useState({
     id: "",
@@ -97,8 +97,8 @@ const CreateUpdateForm = () => {
       <CategoryDetailFieldForm
         onSetCategory={setCategory}
         onSetSubCategory={setSubcategory}
-        categoryValue = {category}
-        subCategoryValue = {subcategory}
+        categoryValue={category}
+        subCategoryValue={subcategory}
       />
       <hr />
       <SelectField
@@ -141,7 +141,9 @@ const CreateUpdateForm = () => {
       ))}
 
       <button className="btn" onClick={handlerOnClickSubmit} type="submit">
-        Submit
+        {
+          props.id === "" ? "Update" : "Submit"
+        }
       </button>
       {showMessage && (
         <h2 style={{ color: "#66cc00", textAlign: "center" }}>
