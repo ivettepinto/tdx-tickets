@@ -1,11 +1,6 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
-const HelpContext = createContext({
-    fields: [],
-    jsonData: [],
-    onAddingFields: () => {},
-    onSubmitDataIntoJson: () => {},
-});
+const HelpContext = createContext();
 
 const HelpProvider = (props) => {
     const [jsonData, setJsonData] = useState([]);
@@ -19,10 +14,15 @@ const HelpProvider = (props) => {
     }
     
     const submitDataIntoJson = (elements) => {
-        console.log("FIELDS REC: ",elements);
-        setJsonData(elements);
-        console.log("CONTEXT: ", jsonData);
+        setJsonData([
+            ...jsonData,
+            elements
+        ]);
+        setFields([]);
     };
+    
+    useEffect(() => {
+    }, [jsonData]);
 
     return (
         <HelpContext.Provider
@@ -36,6 +36,7 @@ const HelpProvider = (props) => {
         </HelpContext.Provider>
     )
 }
+
 
 export {
     HelpContext,

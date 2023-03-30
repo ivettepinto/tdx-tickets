@@ -6,9 +6,7 @@ import "./HelpList.css";
 
 const HelpList = () => {
   const { jsonData } = useContext(HelpContext);
-
-  console.log("DATA",jsonData.fields);
-
+  
   return (
     <div>
       <table>
@@ -20,7 +18,7 @@ const HelpList = () => {
           </tr>
         </thead>
         <tbody>
-          {jsonData.fields && jsonData.fields.map((item, index) => (
+          {jsonData && jsonData.map((item, index) => (
             <HelpListItem key={index} {...item} />
           ))}
         </tbody>

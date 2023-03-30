@@ -9,7 +9,8 @@ import { HelpContext } from "../../context/HelpFormsContext";
 import "./CreateUpdateForm.css";
 
 const CreateUpdateForm = () => {
-  const { jsonData, onSubmitDataIntoJson, onAddingFields } = useContext(HelpContext);
+  const { onSubmitDataIntoJson, onAddingFields } =
+    useContext(HelpContext);
 
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
@@ -53,11 +54,11 @@ const CreateUpdateForm = () => {
   };
 
   const sendMessageDoneAndClean = () => {
+    setShowMessage(true);
     setCategory("");
     setSubcategory("");
+    setNewFieldType("");
     setFields([]);
-
-    setShowMessage(true);
     setTimeout(() => {
       setShowMessage(false);
     }, 3000);
@@ -72,17 +73,16 @@ const CreateUpdateForm = () => {
       subcategory: subcategory,
       field: fields,
     });
-    onSubmitDataIntoJson(jsonToSend);
-    console.log(jsonData);
     sendMessageDoneAndClean();
   };
-  
+
   useEffect(() => {
-    onSubmitDataIntoJson(jsonToSend);
-    
-  //eslint-disable-next-line react-hooks/exhaustive-deps
+    if (jsonToSend.id !== "") {
+      onSubmitDataIntoJson(jsonToSend);
+    }
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [jsonToSend]);
-  
 
   useEffect(() => {
     onAddingFields(fields);
@@ -140,7 +140,11 @@ const CreateUpdateForm = () => {
       <button className="btn" onClick={handlerOnClickSubmit} type="submit">
         Submit
       </button>
-      {showMessage && <h2 style={{color: '#66cc00', textAlign: 'center'}}>Record submitted successfully!</h2>}
+      {showMessage && (
+        <h2 style={{ color: "#66cc00", textAlign: "center" }}>
+          Record submitted successfully!
+        </h2>
+      )}
     </form>
   );
 };
