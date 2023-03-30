@@ -18,11 +18,10 @@ const HelpProvider = (props) => {
         }))
     }
     
-    const submitDataIntoJson = (fields) => {
-        setJsonData((prevState) => ({
-          ...prevState,
-          fields,
-        }));
+    const submitDataIntoJson = (elements) => {
+        console.log("FIELDS REC: ",elements);
+        setJsonData(elements);
+        console.log("CONTEXT: ", jsonData);
     };
 
     return (

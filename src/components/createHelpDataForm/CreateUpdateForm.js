@@ -9,7 +9,7 @@ import { HelpContext } from "../../context/HelpFormsContext";
 import "./CreateUpdateForm.css";
 
 const CreateUpdateForm = () => {
-  const { onSubmitDataIntoJson, onAddingFields } = useContext(HelpContext);
+  const { jsonData, onSubmitDataIntoJson, onAddingFields } = useContext(HelpContext);
 
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
@@ -73,6 +73,7 @@ const CreateUpdateForm = () => {
       field: fields,
     });
     onSubmitDataIntoJson(jsonToSend);
+    console.log(jsonData);
     sendMessageDoneAndClean();
   };
   

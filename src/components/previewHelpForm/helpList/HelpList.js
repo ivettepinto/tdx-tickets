@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import HelpListItem from "./HelpListItem";
+import { HelpContext } from "../../../context/HelpFormsContext";
 
 import "./HelpList.css";
 
-const HelpList = (props) => {
+const HelpList = () => {
+  const { jsonData } = useContext(HelpContext);
+
+  console.log("DATA",jsonData.fields);
+
   return (
     <div>
       <table>
@@ -15,7 +20,7 @@ const HelpList = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.listItems.map((item, index) => (
+          {jsonData.fields && jsonData.fields.map((item, index) => (
             <HelpListItem key={index} {...item} />
           ))}
         </tbody>
