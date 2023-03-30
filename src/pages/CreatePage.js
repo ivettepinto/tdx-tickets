@@ -2,7 +2,7 @@ import React from "react";
 import CreateUpdateForm from "../components/createHelpDataForm/CreateUpdateForm";
 import PreviewForm from "../components/previewHelpForm/PreviewForm";
 
-import "./CreateUpdatePage.css";
+import "./CreatePage.css";
 
 const CreateUpdatePage = () => {
   

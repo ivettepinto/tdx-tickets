@@ -3,6 +3,7 @@ import ImageFieldForm from "./ImageFieldForm";
 import TextFieldForm from "./TextFieldForm";
 import typeOptions from "../../helpers/TypeOptions";
 import SelectField from "../UI/input/SelectField";
+import uniqid from "uniqid";
 import { CategoryDetailFieldForm } from "./CategoryDetailFieldForm";
 import { HelpContext } from "../../context/HelpFormsContext";
 
@@ -68,7 +69,7 @@ const CreateUpdateForm = () => {
     e.preventDefault();
 
     setJsonToSend({
-      id: Math.random(),
+      id: uniqid(),
       category: category,
       subcategory: subcategory,
       field: fields,
@@ -96,6 +97,8 @@ const CreateUpdateForm = () => {
       <CategoryDetailFieldForm
         onSetCategory={setCategory}
         onSetSubCategory={setSubcategory}
+        categoryValue = {category}
+        subCategoryValue = {subcategory}
       />
       <hr />
       <SelectField

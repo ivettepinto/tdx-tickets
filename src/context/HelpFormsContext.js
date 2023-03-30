@@ -26,13 +26,19 @@ const HelpProvider = (props) => {
 
     const getDataById = (id) => {
         const foundItem = jsonData.find((item) => item.id === id);
+        console.log(foundItem)
         return foundItem;
       }
 
-      const removeDataById = (id) => {
+    const removeDataById = (id) => {
         const newJsonData = jsonData.filter(item => item.id !== id);
         setJsonData(newJsonData);
       }
+
+    const editDataById = (id,newData) => {
+        setJsonData(jsonData[id] = newData)
+    }
+    
 
     return (
         <HelpContext.Provider
@@ -43,6 +49,7 @@ const HelpProvider = (props) => {
                 onSubmitDataIntoJson: submitDataIntoJson,
                 getDataById,
                 removeDataById,
+                editDataById
             }}>
             {props.children}
         </HelpContext.Provider>

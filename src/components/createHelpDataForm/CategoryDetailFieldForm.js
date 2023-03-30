@@ -11,6 +11,7 @@ export const CategoryDetailFieldForm = (props) => {
         inputType={"text"}
         setInput={props.onSetCategory}
         required={true}
+        value={props.categoryValue}
       />
       <InputField
         className={"form-field"}
@@ -18,6 +19,7 @@ export const CategoryDetailFieldForm = (props) => {
         inputType={"text"}
         setInput={props.onSetSubCategory}
         required={true}
+        value={props.subCategoryValue}
       />
     </>
   );

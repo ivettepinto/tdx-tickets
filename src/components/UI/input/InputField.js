@@ -10,6 +10,7 @@ const InputField = (props) => {
         type={props.name.toLowerCase()}
         name={props.name.toLowerCase()}
         required={props.required}
+        value={props.value}
       />
     </div>
   );

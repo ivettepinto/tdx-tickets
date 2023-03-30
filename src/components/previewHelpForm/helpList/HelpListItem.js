@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 
 import Button from "../../UI/buttons/Button";
 import ShowTemplateModal from "../../helpForm/ShowTemplateModal";
+import { useNavigate } from "react-router-dom";
 
 import { HelpContext } from "../../../context/HelpFormsContext";
 import "./HelpList.css";
@@ -9,6 +10,7 @@ import "./HelpList.css";
 const HelpListItem = (props) => {
   const { getDataById, removeDataById } = useContext(HelpContext);
   const [isShow, setIsShow] = useState(false);
+  const navigate = useNavigate();
 
   const showModal = () => {
     if (isShow === true) {
@@ -31,6 +33,10 @@ const HelpListItem = (props) => {
     }
   }
 
+  const onEditHanler = () => {
+    navigate(`/edit/${props.id}`)
+  }
+
   return (
     <>
       <tr>
@@ -38,6 +44,7 @@ const HelpListItem = (props) => {
         <td>{props.subcategory}</td>
         <td className="table-actions">
           <Button onShowModal={showModal}>Show Preview</Button>
+          <button id="btn-edit" onClick={onEditHanler}>Edit</button>
           <button id="btn-delete" onClick={onDeleteHandler}>Delete </button>
           {isShow && (
         <ShowTemplateModal

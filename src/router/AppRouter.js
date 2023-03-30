@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from "../pages/HomePage";
 import Navbar from "../components/UI/navbar/Navbar";
-import CreateUpdatePage from "../pages/CreateUpdatePage";
+import CreatePage from "../pages/CreatePage";
+import EditPage from "../pages/EditPage";
 
 const AppRouter = () => {
 
@@ -15,8 +16,9 @@ const AppRouter = () => {
         <Route path="/" element={<HomePage />} />
         <Route
           path="/create"
-          element={<CreateUpdatePage />}
+          element={<CreatePage />}
         />
+         <Route path="/edit/:id" element={<EditPage/>} />
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
