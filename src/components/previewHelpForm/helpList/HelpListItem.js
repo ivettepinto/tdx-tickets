@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Button from "../../UI/buttons/Button";
 import ShowTemplateModal from "../../helpForm/ShowTemplateModal";
-import getService from "../../../helpers/GetService";
 
+import { HelpContext } from "../../../context/HelpFormsContext";
 import "./HelpList.css";
 
 const HelpListItem = (props) => {
+  const { getDataById, removeDataById } = useContext(HelpContext);
   const [isShow, setIsShow] = useState(false);
 
   const showModal = () => {
@@ -18,9 +19,16 @@ const HelpListItem = (props) => {
   };
 
   const fetchData = (id) => {
-    let result = getService(id);
+    let result = getDataById(id);
     console.log(result);
     return result.field;
+  }
+
+  const onDeleteHandler = () => {
+    const option = window.confirm("Are you sure you want to delete this item?");
+    if(option === true){
+      removeDataById(props.id);
+    }
   }
 
   return (
@@ -30,7 +38,7 @@ const HelpListItem = (props) => {
         <td>{props.subcategory}</td>
         <td className="table-actions">
           <Button onShowModal={showModal}>Show Preview</Button>
-          <button id="btn-delete">Delete </button>
+          <button id="btn-delete" onClick={onDeleteHandler}>Delete </button>
           {isShow && (
         <ShowTemplateModal
           onShowModal={showModal}

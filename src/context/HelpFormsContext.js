@@ -6,6 +6,9 @@ const HelpProvider = (props) => {
     const [jsonData, setJsonData] = useState([]);
     const [fields, setFields] = useState([]);
 
+    useEffect(() => {
+    }, [jsonData]);
+
     const addingFields = (newFields) => {
         setFields((prevState) => ({
             ...prevState,
@@ -20,9 +23,16 @@ const HelpProvider = (props) => {
         ]);
         setFields([]);
     };
-    
-    useEffect(() => {
-    }, [jsonData]);
+
+    const getDataById = (id) => {
+        const foundItem = jsonData.find((item) => item.id === id);
+        return foundItem;
+      }
+
+      const removeDataById = (id) => {
+        const newJsonData = jsonData.filter(item => item.id !== id);
+        setJsonData(newJsonData);
+      }
 
     return (
         <HelpContext.Provider
@@ -31,6 +41,8 @@ const HelpProvider = (props) => {
                 jsonData: jsonData,
                 onAddingFields: addingFields,
                 onSubmitDataIntoJson: submitDataIntoJson,
+                getDataById,
+                removeDataById,
             }}>
             {props.children}
         </HelpContext.Provider>
