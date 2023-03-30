@@ -26,7 +26,6 @@ const HelpProvider = (props) => {
 
     const getDataById = (id) => {
         const foundItem = jsonData.find((item) => item.id === id);
-        console.log(foundItem)
         return foundItem;
       }
 

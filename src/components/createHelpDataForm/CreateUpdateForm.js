@@ -13,9 +13,10 @@ const CreateUpdateForm = (props) => {
   const { onSubmitDataIntoJson, onAddingFields } =
     useContext(HelpContext);
 
-  const [category, setCategory] = useState(props.category ?? "");
-  const [subcategory, setSubcategory] = useState(props.subcategory ?? "");
-  const [fields, setFields] = useState(props.fields ?? []);
+
+  const [category, setCategory] = useState(props.data.category ?? "");
+  const [subcategory, setSubcategory] = useState(props.data.subcategory ?? "");
+  const [fields, setFields] = useState(props.data.field ?? []);
   const [newFieldType, setNewFieldType] = useState("");
   const [jsonToSend, setJsonToSend] = useState({
     id: "",
@@ -78,7 +79,9 @@ const CreateUpdateForm = (props) => {
   };
 
   useEffect(() => {
-    if (jsonToSend.id !== "") {
+    if (jsonToSend.id !== ""
+      && jsonToSend.category !== ""
+      && jsonToSend.subcategory !== "") {
       onSubmitDataIntoJson(jsonToSend);
     }
 

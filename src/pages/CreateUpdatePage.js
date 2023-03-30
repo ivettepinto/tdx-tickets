@@ -9,8 +9,7 @@ import "./CreateUpdatePage.css";
 const CreateUpdatePage = () => {
   const {id} = useParams();
   const { getDataById } = useContext(HelpContext);
-
-  const helpFormToEdit = getDataById(id);
+  const helpFormToEdit = getDataById(id) ?? [];
 
   return (
     <div className="container">
