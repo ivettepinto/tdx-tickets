@@ -35,7 +35,8 @@ const HelpProvider = (props) => {
       }
 
     const editDataById = (id,newData) => {
-        setJsonData(jsonData[id] = newData)
+        const newJsonData = jsonData.map(item => item.id !== newData.id ? item : newData);
+        setJsonData(newJsonData);
     }
     
 

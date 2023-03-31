@@ -7,7 +7,7 @@ import PreviewForm from "../components/previewHelpForm/PreviewForm";
 import "./CreateUpdatePage.css";
 
 const CreateUpdatePage = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   const { getDataById } = useContext(HelpContext);
   const helpFormToEdit = getDataById(id) ?? [];
 

@@ -9,7 +9,7 @@ const SelectField = (props) => {
         name={props.name.toLowerCase()}
         id={props.name.toLowerCase()}
         required={props.required}
-        defaultValue=""
+        value={props.value}
       >
         <option hidden={true} disabled={true} value="">
               Select a type

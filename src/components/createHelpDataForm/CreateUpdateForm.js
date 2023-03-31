@@ -10,9 +10,8 @@ import { HelpContext } from "../../context/HelpFormsContext";
 import "./CreateUpdateForm.css";
 
 const CreateUpdateForm = (props) => {
-  const { onSubmitDataIntoJson, onAddingFields } =
+  const { onSubmitDataIntoJson, onAddingFields, editDataById } =
     useContext(HelpContext);
-
 
   const [category, setCategory] = useState(props.data.category ?? "");
   const [subcategory, setSubcategory] = useState(props.data.subcategory ?? "");
@@ -24,8 +23,6 @@ const CreateUpdateForm = (props) => {
     subcategory: "",
     field: [],
   });
-  const [showMessage, setShowMessage] = useState(false);
-
   const handleOnChange = (index, event) => {
     let data = [...fields];
     data[index][event.target.name] = event.target.value;
@@ -55,34 +52,40 @@ const CreateUpdateForm = (props) => {
     }
   };
 
-  const sendMessageDoneAndClean = () => {
-    setShowMessage(true);
+  const cleanFields = () => {
     setCategory("");
     setSubcategory("");
     setNewFieldType("");
     setFields([]);
-    setTimeout(() => {
-      setShowMessage(false);
-    }, 3000);
   };
 
   const handlerOnClickSubmit = (e) => {
     e.preventDefault();
 
     setJsonToSend({
-      id: uniqid(),
+      id: props.data.id ?? uniqid(),
       category: category,
       subcategory: subcategory,
       field: fields,
     });
-    sendMessageDoneAndClean();
+    if (props.data.length === 0) {
+      alert("Item stored successfully!");
+      cleanFields();
+    } else {
+      alert("Item updated successfully!");
+    }
   };
 
   useEffect(() => {
-    if (jsonToSend.id !== ""
-      && jsonToSend.category !== ""
-      && jsonToSend.subcategory !== "") {
+    if (
+      props.data.length === 0 &&
+      jsonToSend.id !== "" &&
+      jsonToSend.category !== "" &&
+      jsonToSend.subcategory !== ""
+    ) {
       onSubmitDataIntoJson(jsonToSend);
+    } else {
+      editDataById(props.data.id, jsonToSend);
     }
 
     //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -110,6 +113,7 @@ const CreateUpdateForm = (props) => {
         setSelect={setNewFieldType}
         required={true}
         options={typeOptions}
+        value={newFieldType}
       />
 
       <button
@@ -144,15 +148,8 @@ const CreateUpdateForm = (props) => {
       ))}
 
       <button className="btn" onClick={handlerOnClickSubmit} type="submit">
-        {
-          props.id === "" ? "Update" : "Submit"
-        }
+        {props.data.length === 0 ? "Submit" : "Update"}
       </button>
-      {showMessage && (
-        <h2 style={{ color: "#66cc00", textAlign: "center" }}>
-          Record submitted successfully!
-        </h2>
-      )}
     </form>
   );
 };
