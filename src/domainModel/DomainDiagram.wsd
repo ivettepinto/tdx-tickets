@@ -8,6 +8,7 @@ Object Category
 Object SubCategory
 Object Field
 Object URLLink
+Object className
 Object TextField 
 Object ImageField
 Object TableField
@@ -29,6 +30,7 @@ HelpForm *--"*" Field
 Field *-up- Text
 Field o-up- URLLink
 Field *-up- Align
+Field *-up- className
 
 TextField -up-|> Field
 ImageField -up-|> Field
