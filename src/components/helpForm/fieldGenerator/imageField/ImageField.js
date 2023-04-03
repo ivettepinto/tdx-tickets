@@ -4,7 +4,6 @@ const ImageField = (props) => {
   return (
     <img
       style={{
-        textAlign: `${props.align} || left`,
         maxWidth: "25vw",
         maxHeight: "25vh",
       }}

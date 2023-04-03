@@ -22,7 +22,6 @@ const HelpListItem = (props) => {
 
   const fetchData = (id) => {
     let result = getDataById(id);
-    console.log(result);
     return result.field;
   }
 
@@ -40,8 +39,7 @@ const HelpListItem = (props) => {
   return (
     <>
       <tr>
-        <td>{props.category}</td>
-        <td>{props.subcategory}</td>
+        <td>{props.field[0].text}</td>
         <td className="table-actions">
           <Button onShowModal={showModal}>Show Preview</Button>
           <button id="btn-edit" onClick={onEditHanler}>Edit</button>

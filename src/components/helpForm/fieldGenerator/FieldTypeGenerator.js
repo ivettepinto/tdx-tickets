@@ -5,7 +5,7 @@ import ImageField from "./imageField/ImageField";
 
 const Field = (props) => {
   const getTag = () => {
-    if (props.type === "h1" || props.type === "h2" || props.type === "p") {
+    if (props.type === "title1" || props.type === "title2" || props.type === "simple") {
       return <TextField {...props} />;
     }
 
@@ -13,7 +13,7 @@ const Field = (props) => {
       case "image":
         return (
           <ImageField
-            align={props.align}
+            id={props.type}
             imageurl={props.imageurl}
             text={props.text}
           />
@@ -21,7 +21,8 @@ const Field = (props) => {
 
       case "table":
         return (
-          <TableField 
+          <TableField
+            id={props.type}
             header={props.header} 
             textrow={props.textrow} />
           );

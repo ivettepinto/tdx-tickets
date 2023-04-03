@@ -4,7 +4,6 @@ import TextFieldForm from "./TextFieldForm";
 import typeOptions from "../../helpers/TypeOptions";
 import SelectField from "../UI/input/SelectField";
 import uniqid from "uniqid";
-import { CategoryDetailFieldForm } from "./CategoryDetailFieldForm";
 import { HelpContext } from "../../context/HelpFormsContext";
 
 import "./CreateUpdateForm.css";
@@ -13,8 +12,6 @@ const CreateUpdateForm = (props) => {
   const { onSubmitDataIntoJson, onAddingFields, editDataById } =
     useContext(HelpContext);
 
-  const [category, setCategory] = useState(props.data.category ?? "");
-  const [subcategory, setSubcategory] = useState(props.data.subcategory ?? "");
   const [fields, setFields] = useState(props.data.field ?? []);
   const [newFieldType, setNewFieldType] = useState("");
   const [jsonToSend, setJsonToSend] = useState({
@@ -33,7 +30,6 @@ const CreateUpdateForm = (props) => {
     let genericField = {
       type: newFieldType,
       text: "",
-      align: "",
       classname: "",
       urllink: "",
     };
@@ -53,10 +49,9 @@ const CreateUpdateForm = (props) => {
   };
 
   const cleanFields = () => {
-    setCategory("");
-    setSubcategory("");
     setNewFieldType("");
     setFields([]);
+    onAddingFields(fields);
   };
 
   const handlerOnClickSubmit = (e) => {
@@ -64,8 +59,6 @@ const CreateUpdateForm = (props) => {
 
     setJsonToSend({
       id: props.data.id ?? uniqid(),
-      category: category,
-      subcategory: subcategory,
       field: fields,
     });
     if (props.data.length === 0) {
@@ -73,19 +66,19 @@ const CreateUpdateForm = (props) => {
       cleanFields();
     } else {
       alert("Item updated successfully!");
+      cleanFields();
     }
   };
 
   useEffect(() => {
     if (
       props.data.length === 0 &&
-      jsonToSend.id !== "" &&
-      jsonToSend.category !== "" &&
-      jsonToSend.subcategory !== ""
+      jsonToSend.id !== ""
     ) {
       onSubmitDataIntoJson(jsonToSend);
     } else {
       editDataById(props.data.id, jsonToSend);
+      
     }
 
     //eslint-disable-next-line react-hooks/exhaustive-deps
@@ -100,12 +93,6 @@ const CreateUpdateForm = (props) => {
   return (
     <form className="column">
       <h2 className="column-title">Help form data</h2>
-      <CategoryDetailFieldForm
-        onSetCategory={setCategory}
-        onSetSubCategory={setSubcategory}
-        categoryValue={category}
-        subCategoryValue={subcategory}
-      />
       <hr />
       <SelectField
         className={"form-field"}

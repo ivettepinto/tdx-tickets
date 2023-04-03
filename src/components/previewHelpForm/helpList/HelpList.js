@@ -12,8 +12,7 @@ const HelpList = () => {
       <table>
         <thead>
           <tr>
-            <th>Category</th>
-            <th>SubCategory</th>
+            <th>ID</th>
             <th>Actions</th>
           </tr>
         </thead>

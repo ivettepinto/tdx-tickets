@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./CreateUpdateForm.css";
 
 const TextFieldForm = (props) => {
@@ -19,9 +18,9 @@ const TextFieldForm = (props) => {
             <option hidden={true} disabled={true} value="">
               Select a type
             </option>
-            <option value="h1">Tittle 1</option>
-            <option value="h2">Tittle 2</option>
-            <option value="p">Simple</option>
+            <option value="title1">Tittle 1</option>
+            <option value="title2">Tittle 2</option>
+            <option value="simple">Simple</option>
           </select>
         </>
       ) : (
@@ -37,25 +36,6 @@ const TextFieldForm = (props) => {
           required={true}
           value={props.text}
         />
-      </div>
-
-      <div className="form-field">
-        <label htmlFor="align">Alignment</label>
-        <select
-          onChange={(event) => props.handleOnChange(props.index, event)}
-          name="align"
-          id="align"
-          required={true}
-          defaultValue=""
-        >
-          <option hidden={true} disabled={true} value="">
-            Select a type
-          </option>
-          <option value="left">Left</option>
-          <option value="right">Right</option>
-          <option value="center">Center</option>
-          <option value="justify">Justify</option>
-        </select>
       </div>
 
       <div className="form-field">

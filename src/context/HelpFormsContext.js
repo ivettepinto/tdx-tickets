@@ -1,9 +1,10 @@
 import { createContext, useState, useEffect } from 'react';
+import generatedJson from '../helpers/Generated.json';
 
 const HelpContext = createContext();
 
 const HelpProvider = (props) => {
-    const [jsonData, setJsonData] = useState([]);
+    const [jsonData, setJsonData] = useState(generatedJson);
     const [fields, setFields] = useState([]);
 
     useEffect(() => {
