@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-import generatedJson from '../helpers/Generated.json';
+import generatedJson from '../helpers/Generated';
 
 const HelpContext = createContext();
 
