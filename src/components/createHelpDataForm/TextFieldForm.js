@@ -1,13 +1,16 @@
 import React from "react";
 import "./CreateUpdateForm.css";
+import { cssOptions } from "../../helpers/TypeOptions";
+import SelectField from "../UI/input/SelectField";
 
 const TextFieldForm = (props) => {
   return (
     <>
       {(props.type !== "image") & (props.type !== "table") ? (
         <>
-
-          <label htmlFor="type" className="form-field">Type Text</label>
+          <label htmlFor="type" className="form-field">
+            Type Text
+          </label>
           <select
             onChange={(event) => props.handleOnChange(props.index, event)}
             name="type"
@@ -38,17 +41,27 @@ const TextFieldForm = (props) => {
         />
       </div>
 
-      <div className="form-field">
-        <label htmlFor="classname">CSS Class</label>
-        <input
+      <div>
+        <label htmlFor="classname" className="form-field">
+          CSS Class
+        </label>
+        <select
           onChange={(event) => props.handleOnChange(props.index, event)}
-          id="classname"
           name="classname"
-          type="classname"
-          value={props.classname}
-        />
+          id="classname"
+          required={true}
+          defaultValue=""
+        >
+          <option hidden={true} disabled={true} value="">
+            Select a type
+          </option>
+          {cssOptions.map((item, index) => (
+            <option key={index} value={item.value}>
+              {item.name}
+            </option>
+          ))}
+        </select>
       </div>
-
       <div className="form-field">
         <label htmlFor="urllink">Url link</label>
         <input

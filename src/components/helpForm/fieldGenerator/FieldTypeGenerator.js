@@ -16,6 +16,7 @@ const Field = (props) => {
             id={props.type}
             imageurl={props.imageurl}
             text={props.text}
+            className={props.classname}
           />
         );
 

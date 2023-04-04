@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import ImageFieldForm from "./ImageFieldForm";
 import TextFieldForm from "./TextFieldForm";
-import typeOptions from "../../helpers/TypeOptions";
+import { typeOptions } from "../../helpers/TypeOptions";
 import SelectField from "../UI/input/SelectField";
 import uniqid from "uniqid";
 import { HelpContext } from "../../context/HelpFormsContext";
@@ -36,6 +36,10 @@ const CreateUpdateForm = (props) => {
     let specificField = {};
     switch (type) {
       case "text":
+        specificField = { ...genericField };
+        setFields([...fields, specificField]);
+        break;
+      case "bullets":
         specificField = { ...genericField };
         setFields([...fields, specificField]);
         break;
